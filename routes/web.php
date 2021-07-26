@@ -43,4 +43,9 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth']], functio
     Route::group(['prefix' => 'filemanager'], function () {
         \UniSharp\LaravelFilemanager\Lfm::routes();
     });
+    //posts
+    Route::get('/roles/select', [\App\Http\Controllers\RoleController::class, 'select'])->name('roles.select');
+    Route::resource('/roles', \App\Http\Controllers\RoleController::class);
+    //users
+    Route::resource('/users', \App\Http\Controllers\UserController::class)->except(['show']);
 });

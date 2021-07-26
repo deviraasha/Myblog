@@ -7,6 +7,8 @@ use Diglactic\Breadcrumbs\Breadcrumbs;
 // This import is also not required, and you could replace `BreadcrumbTrail $trail`
 //  with `$trail`. This is nice for IDE type checking and completion.
 use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
+
+
 //===========================HOMEPAGE============================
 Breadcrumbs::for('homepage', function (BreadcrumbTrail $trail) {
     $trail->push('Homepage', route('homepage.home'));
@@ -134,4 +136,53 @@ Breadcrumbs::for('edit_post', function (BreadcrumbTrail $trail, $post) {
     $trail->parent('posts');
     $trail->push('Edit', route('posts.edit', ['post' => $post]));
     $trail->push($post->title, route('posts.edit', ['post' => $post]));
+});
+
+//===========================ROLES============================
+
+//Dashboard > Roles
+Breadcrumbs::for('roles', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('Roles', route('roles.index'));
+});
+
+//Dashboard > Roles > Create
+Breadcrumbs::for('roles_add', function (BreadcrumbTrail $trail) {
+    $trail->parent('roles');
+    $trail->push('Add', route('roles.create'));
+});
+
+//Dashboard > Roles > Detail
+Breadcrumbs::for('roles_detail', function (BreadcrumbTrail $trail, $role) {
+    $trail->parent('roles');
+    $trail->push('Detail', route('roles.show', ['role' => $role]));
+    $trail->push($role->name, route('roles.show', ['role' => $role]));
+});
+
+//Dashboard > Roles > Edit
+Breadcrumbs::for('roles_edit', function (BreadcrumbTrail $trail, $role) {
+    $trail->parent('roles');
+    $trail->push('Edit', route('roles.edit', ['role' => $role]));
+    $trail->push($role->name, route('roles.edit', ['role' => $role]));
+});
+
+//===========================USERS============================
+
+//Dashboard > Users
+Breadcrumbs::for('users', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('users', route('users.index'));
+});
+
+//Dashboard > Users > Add
+Breadcrumbs::for('add_users', function (BreadcrumbTrail $trail) {
+    $trail->parent('users');
+    $trail->push('Add', route('users.create'));
+});
+
+//Dashboard > Users > Edit
+Breadcrumbs::for('edit_users', function (BreadcrumbTrail $trail, $user) {
+    $trail->parent('users');
+    $trail->push('Edit', route('users.edit', ['user' => $user]));
+    $trail->push($user->name, route('users.edit', ['user' => $user]));
 });

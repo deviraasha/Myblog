@@ -13,6 +13,10 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class PostController extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->middleware(['role_or_permission:super-admin|edit articles']);
+    // }
     /**
      * Display a listing of the resource.
      *

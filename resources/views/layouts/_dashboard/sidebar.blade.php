@@ -33,27 +33,32 @@
                 </div>
                 {{ trans('dashboard.link.tags') }}
             </a>
+            <div class="sb-sidenav-menu-heading">{{ trans('dashboard.menu.user_permission') }}</div>
 
-            {{-- <div class="sb-sidenav-menu-heading">{{ trans('dashboard.menu.user_permission') }}</div>
-            <a class="nav-link" href="#">
+            {{-- users --}}
+            <a class="nav-link {{ set_active(['users.index', 'users.edit']) }}" href="{{ route('users.index') }}">
                 <div class="sb-nav-link-icon">
                     <i class="fas fa-user"></i>
                 </div>
                 {{ trans('dashboard.link.users') }}
             </a>
-            <a class="nav-link" href="#">
+
+            {{-- Roles --}}
+            <a class="nav-link {{ set_active(['roles.index', 'roles.show', 'roles.create', 'roles.edit']) }}"
+                href="{{ route('roles.index') }}">
                 <div class="sb-nav-link-icon">
                     <i class="fas fa-user-shield"></i>
                 </div>
                 {{ trans('dashboard.link.roles') }}
             </a>
+
             <div class="sb-sidenav-menu-heading">{{ trans('dashboard.menu.setting') }}</div>
             <a class="nav-link" href="#">
                 <div class="sb-nav-link-icon">
                     <i class="fas fa-photo-video"></i>
                 </div>
                 {{ trans('dashboard.link.file_manager') }}
-            </a> --}}
+            </a>
 
         </div>
     </div>

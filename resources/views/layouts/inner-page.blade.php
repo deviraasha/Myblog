@@ -2,7 +2,6 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="@yield('description')">
@@ -27,32 +26,22 @@
 
 </head>
 
-<body class="d-flex flex-column min-vh-100">
+<body>
 
-    <!-- Navigation:start -->
-    @include('layouts.homepage.navbar')
-    <!-- Navigation:end -->
+    @include('layouts.innerpage.navbar')
 
-    <!-- Page Content -->
-    <div class="container">
-        <!-- content:start -->
-        @yield('content')
-        <!-- content:end -->
-    </div>
-    <!-- /.container -->
+    <main id="main">
+        <div class="container">
+            @yield('content')
+        </div>
+        @include('layouts.innerpage.test')
+    </main><!-- End #main -->
 
-    <!-- Footer:start -->
-    @include('layouts.homepage.footer')
-    <!-- Footer:end -->
+    @include('layouts.innerpage.footer')
+
     <div id="preloader"></div>
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
-    <!-- jquery -->
-    <script src="{{ asset('vendor/jquery/jquery-3.6.0.min.js') }}"></script>
-    <!-- bootstrap -->
-
-    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
 
     <!-- Vendor JS Files -->
     <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
@@ -64,6 +53,7 @@
 
     <!-- Template Main JS File -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
+
 </body>
 
 </html>

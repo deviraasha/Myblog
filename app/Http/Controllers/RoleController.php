@@ -7,9 +7,19 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
+use Illuminate\Support\Facades\Redirect;
 
 class RoleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:role_show', ['only' => 'index']);
+        $this->middleware('permission:role_create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:role_update', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:role_detail', ['only' => 'show']);
+        $this->middleware('permission:role_delete', ['only' => 'destroy']);
+    }
     private $perPage = 10;
     /**
      * Display a listing of the resource.
@@ -179,6 +189,16 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
+        //validasi
+        if (User::role($role->name)->count()) {
+            Alert::warning(
+                trans('roles.alert.delete.title'),
+                trans('roles.alert.delete.message.warning', ['name' => $role->name]),
+            );
+            return redirect()->route('roles.index');
+        }
+
+        //proses hapus
         DB::beginTransaction();
         try {
             $role->revokePermissionTo($role->permissions->pluck('name')->toArray());

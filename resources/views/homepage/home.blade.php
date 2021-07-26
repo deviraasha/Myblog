@@ -1,19 +1,13 @@
 @extends('layouts.homepage')
+@extends('layouts.homepage.hero')
 
 @section('title')
     {{ trans('homepage.title.home') }}
 @endsection
 
 @section('content')
-    <!-- page title -->
-    <h2 class="my-3">
-        {{ trans('homepage.title.home') }}
-    </h2>
-    <!-- Breadcrumbs:start -->
-    {{ Breadcrumbs::render('homepage_home') }}
-    <!-- Breadcrumbs:end -->
 
-    <div class="row">
+    <div class="row pt-3">
         <div class="col">
             <!-- Post list:start -->
             @forelse ($posts as $post)

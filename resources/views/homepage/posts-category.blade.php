@@ -1,5 +1,5 @@
 @extends('layouts.homepage')
-
+@extends('layouts.homepage.hero')
 @section('title')
     {{ trans('homepage.title.category', ['title' => 'category title']) }}
 @endsection
@@ -57,14 +57,19 @@
             <!-- Categories list:start -->
             <div class="card mb-1">
                 <h5 class="card-header">
-                    Categories
+                    {{ trans('homepage.widget.categories') }}
                 </h5>
                 <div class="card-body">
                     <ul class="list-unstyled">
                         <li>
-                            <a href="">
-                                Category title
-                            </a>
+                            @if ($category->slug == $categoryRoot->slug)
+                                {{ $categoryRoot->title }}
+                            @else
+                                <a href="{{ route('homepage.post-category', ['slug' => $categoryRoot->slug]) }}">
+                                    {{ $categoryRoot->title }}
+                                </a>
+                            @endif
+
                             <!-- category descendants:start -->
 
                             <!-- category descendants:end -->

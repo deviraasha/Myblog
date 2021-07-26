@@ -49,9 +49,11 @@ class HomepageController extends Controller
         })->paginate($this->perpage);
 
         $category = Category::where('slug', $slug)->first();
+        $categoryRoot = $category->root();
         return view('homepage.posts-category', [
             'posts' => $posts,
-            'category' => $category
+            'category' => $category,
+            'categoryRoot' => $categoryRoot
         ]);
     }
 }

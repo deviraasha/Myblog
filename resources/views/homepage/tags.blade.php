@@ -1,23 +1,26 @@
-@extends('layouts.homepage')
+@extends('layouts.inner-page')
 
 @section('title')
     {{ trans('homepage.title.tags') }}
 @endsection
 
-@section('content')
-    <h2 class="my-3">
-        {{ trans('homepage.title.tags') }}
-    </h2>
-    <!-- Breadcrumb:start -->
-    {{ Breadcrumbs::render('homepage_tags') }}
-    <!-- Breadcrumb:end -->
+<!-- ======= Breadcrumbs ======= -->
+<section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+        <ol>
+            {{ Breadcrumbs::render('homepage_tags') }}
+        </ol>
+        <h2>{{ trans('homepage.title.tags') }}</h2>
+    </div>
+</section><!-- End Breadcrumbs -->
 
+@section('content')
     <!-- List tag -->
-    <div class="row">
-        <div class="col">
+    <div class="row content">
+        <div class="col-lg-6 pt-4 pt-lg-0">
             @forelse ($tags as $tag)
                 <!-- true -->
-                <a href="" class="badge badge-info py-3 px-5">{{ $tag->title }}</a>
+                <a href="" class="btn-learn-more py-3 px-5">{{ $tag->title }}</a>
             @empty
                 <!-- false -->
                 <h3 class="text-center">

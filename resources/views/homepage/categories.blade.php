@@ -1,19 +1,23 @@
-@extends('layouts.homepage')
+@extends('layouts.inner-page')
 
 @section('title')
     {{ trans('homepage.title.categories') }}
 @endsection
 
-@section('content')
-    <h2 class="my-3">
-        {{ trans('homepage.title.categories') }}
-    </h2>
-    <!-- Breadcrumb:start -->
-    {{ Breadcrumbs::render('homepage_categories') }}
-    <!-- Breadcrumb:end -->
+<!-- ======= Breadcrumbs ======= -->
+<section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+        <ol>
+            <li><a href="">{{ Breadcrumbs::render('homepage_categories') }}</a></li>
 
+        </ol>
+        <h2>{{ trans('homepage.title.categories') }}</h2>
+    </div>
+</section><!-- End Breadcrumbs -->
+
+@section('content')
     <!-- List category -->
-    <div class="row">
+    <div class="row pt-3">
         @forelse ($categories as $category)
             <!-- true -->
             <div class="col-lg-4 col-sm-6 portfolio-item">

@@ -1,8 +1,9 @@
     <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top navbar-expand-lg">
+    <header id="header" class="fixed-top header-inner-pages">
         <div class="container d-flex align-items-center">
             <h1 class="logo me-auto"><a href="{{ route('homepage.home') }}">
                     <img src="{{ asset('assets/img/2.png') }}" alt="" class="img-fluid"></a></h1>
+
             <nav id="navbar" class="navbar">
                 <i class="bi bi-list mobile-nav-toggle"></i>
                 <ul>
@@ -72,5 +73,6 @@
                     </li>
                 </ul>
             </nav><!-- .navbar -->
+
         </div>
     </header><!-- End Header -->

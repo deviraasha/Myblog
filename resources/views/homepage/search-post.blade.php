@@ -1,5 +1,5 @@
 @extends('layouts.homepage')
-
+@extends('layouts.homepage.hero')
 @section('title')
     {{ request()->get('keyword') }}
 @endsection

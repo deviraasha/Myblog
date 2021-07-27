@@ -22,7 +22,7 @@ return [
         'file_manager' => 'File Manager',
         'roles' => 'Roles',
         'users' => 'Users',
-        'profile' => 'Profile',
+        'homepage' => 'Homepage',
         'logout' => 'Logout',
     ],
     'label' => [

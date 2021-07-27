@@ -1,9 +1,8 @@
-@extends('layouts.homepage')
-@extends('layouts.homepage.hero')
+@extends('layouts.landing')
 
-@section('title')
+{{-- @section('title')
     {{ trans('homepage.title.home') }}
-@endsection
+@endsection --}}
 
 @section('content')
 

@@ -9,9 +9,7 @@
     <div class="container">
         <ol>
             <li><a href="">{{ Breadcrumbs::render('homepage_categories') }}</a></li>
-
         </ol>
-        <h2>{{ trans('homepage.title.categories') }}</h2>
     </div>
 </section><!-- End Breadcrumbs -->
 

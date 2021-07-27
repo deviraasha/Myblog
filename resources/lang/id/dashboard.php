@@ -21,7 +21,7 @@ return [
         'file_manager' => 'Manajemen file',
         'roles' => 'Wewenang',
         'users' => 'Pengguna',
-        'profile' => 'Profil',
+        'homepage' => 'Homepage',
         'logout' => 'Keluar',
 
     ],

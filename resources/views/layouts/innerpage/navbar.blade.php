@@ -24,8 +24,8 @@
                     <li><a class="nav-link scrollto"
                             href="{{ route('homepage.categories') }}">{{ trans('homepage.menu.categories') }}</a>
                     </li>
-                    <li><a class="nav-link scrollto"
-                            href="{{ route('homepage.tags') }}">{{ trans('homepage.menu.tags') }}</a></li>
+                    {{-- <li><a class="nav-link scrollto"
+                            href="{{ route('homepage.tags') }}">{{ trans('homepage.menu.tags') }}</a></li> --}}
 
                     @auth
                         <li class="dropdown"><a href="#"><span>{{ auth()->user()->name }}</span> <i

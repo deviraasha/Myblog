@@ -1,12 +1,35 @@
-<footer class="py-4 bg-light mt-auto">
-    <div class="container-fluid">
-       <div class="d-flex align-items-center justify-content-between small">
-          <div class="text-muted">Copyright &copy; Your Website 2021</div>
-          <div>
-             <a href="#">Privacy Policy</a>
-             &middot;
-             <a href="#">Terms &amp; Conditions</a>
-          </div>
-       </div>
+<footer class="footer">
+    <div class="container">
+        <nav class="float-left">
+            <ul>
+                <li>
+                    <a href="https://www.creative-tim.com/">
+                        Creative Tim
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.creative-tim.com/presentation">
+                        About Us
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.creative-tim.com/blog">
+                        Blog
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.creative-tim.com/license">
+                        Licenses
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="copyright float-right">
+            &copy;
+            <script>
+                document.write(new Date().getFullYear())
+            </script>, made with <i class="material-icons">favorite</i> by
+            <a href="https://www.creative-tim.com/" target="_blank">Creative Tim</a> for a better web.
+        </div>
     </div>
- </footer>
+</footer>

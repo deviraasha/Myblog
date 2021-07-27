@@ -1,5 +1,11 @@
 <?php
 
+use App\Http\Controllers\BiodataController;
+use App\Http\Controllers\CategoryInputController;
+use App\Http\Controllers\ResultController;
+use App\Http\Controllers\RuleController;
+use App\Http\Controllers\VariableInputController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -11,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::get('/localization/{language}', [\App\Http\Controllers\LocalizationController::class, 'switch'])->name('localization.switch');
 
@@ -21,10 +27,16 @@ Route::get('/categories/{slug}', [\App\Http\Controllers\HomepageController::clas
 Route::get('/tags', [\App\Http\Controllers\HomepageController::class, 'showTags'])->name('homepage.tags');
 Route::get('/search', [\App\Http\Controllers\HomepageController::class, 'searchPost'])->name('homepage.search-post');
 
-
+//Testing DB
+Route::get('/test-biodata', [BiodataController::class, 'index']);
+Route::get('/test-category-input', [CategoryInputController::class, 'index']);
+Route::get('/test-result', [ResultController::class, 'index']);
+Route::get('/test-rule', [RuleController::class, 'index']);
+Route::get('/test-variable-input', [VariableInputController::class, 'index']);
+//End Testing
 
 Auth::routes([
-    'register' => false
+    'register' => false,
 ]);
 
 Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth']], function () {

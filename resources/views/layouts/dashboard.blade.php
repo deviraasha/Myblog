@@ -13,7 +13,7 @@
     <!-- fontawesome -->
     <script src="{{ asset('vendor/fontawesome-free/js/all.min.js') }}"></script>
     <!-- icon flag -->
-    <link rel="stylesheet" href="{{ asset('vendor/flag-icon-css/css/flag-icon.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/flag-icon-css/css/flag-icon.min.css') }}">
     {{-- Css:external --}}
     @stack('css-external')
     {{-- Css:internal --}}

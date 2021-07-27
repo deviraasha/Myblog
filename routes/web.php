@@ -21,10 +21,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/localization/{language}', [\App\Http\Controllers\LocalizationController::class, 'switch'])->name('localization.switch');
 
-Route::get('/', [\App\Http\Controllers\HomepageController::class, 'home'])->name('homepage.home');
+Route::get('/', [\App\Http\Controllers\HomepageController::class, 'home', 'showCategories'])->name('homepage.home');
+Route::get('/post/{slug}', [\App\Http\Controllers\HomepageController::class,  'showPostDetail'])->name('homepage.posts.detail');
 Route::get('/categories', [\App\Http\Controllers\HomepageController::class, 'showCategories'])->name('homepage.categories');
 Route::get('/categories/{slug}', [\App\Http\Controllers\HomepageController::class, 'showPostsByCategory'])->name('homepage.post-category');
 Route::get('/tags', [\App\Http\Controllers\HomepageController::class, 'showTags'])->name('homepage.tags');
+Route::get('/tags/{slug}', [\App\Http\Controllers\HomepageController::class, 'showPostsByTag'])->name('homepage.posts.tag');
 Route::get('/search', [\App\Http\Controllers\HomepageController::class, 'searchPost'])->name('homepage.search-post');
 
 //Testing DB
@@ -53,6 +55,8 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth']], functio
 
     //file manager
     Route::group(['prefix' => 'filemanager'], function () {
+        Route::get('/index', [\App\Http\Controllers\FileManagerController::class, 'index'])
+            ->name('filemanager.index');
         \UniSharp\LaravelFilemanager\Lfm::routes();
     });
     //posts

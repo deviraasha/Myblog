@@ -14,32 +14,45 @@ Breadcrumbs::for('homepage', function (BreadcrumbTrail $trail) {
     $trail->push('Homepage', route('homepage.home'));
 });
 
-//Dashboard > Home
+//Homepage > Home
 Breadcrumbs::for('homepage_home', function (BreadcrumbTrail $trail) {
     $trail->parent('homepage');
     $trail->push('Home', route('homepage.home'));
 });
 
-//Dashboard > Categories
+//Homepage > Post Detail
+Breadcrumbs::for('homepage_post', function (BreadcrumbTrail $trail, $title) {
+    $trail->parent('homepage');
+    $trail->push($title, '#');
+});
+
+//Homepage > Categories
 Breadcrumbs::for('homepage_categories', function (BreadcrumbTrail $trail) {
     $trail->parent('homepage');
     $trail->push('Categories', route('homepage.categories'));
 });
 
-//Dashboard > Categories > [title]
+//Homepage > Categories > [title]
 Breadcrumbs::for('homepage_post-category', function (BreadcrumbTrail $trail, $title) {
     $trail->parent('homepage');
     $trail->push('Categories', route('homepage.categories'));
     $trail->push($title, '#');
 });
 
-//Dashboard > Tags
+//Homepage > Tags
 Breadcrumbs::for('homepage_tags', function (BreadcrumbTrail $trail) {
     $trail->parent('homepage');
     $trail->push('Tags', route('homepage.tags'));
 });
 
-//Dashboard > Search
+//Homepage > Tags > [title]
+Breadcrumbs::for('homepage_post-tags', function (BreadcrumbTrail $trail, $title) {
+    $trail->parent('homepage');
+    $trail->push('Tags', route('homepage.tags'));
+    $trail->push($title, '#');
+});
+
+//Homepage > Search
 Breadcrumbs::for('homepage_search', function (BreadcrumbTrail $trail, $keyword) {
     $trail->parent('homepage');
     $trail->push('Search', route('homepage.search-post'));
@@ -136,6 +149,12 @@ Breadcrumbs::for('edit_post', function (BreadcrumbTrail $trail, $post) {
     $trail->parent('posts');
     $trail->push('Edit', route('posts.edit', ['post' => $post]));
     $trail->push($post->title, route('posts.edit', ['post' => $post]));
+});
+
+//Dashboard > Filemanager
+Breadcrumbs::for('file_manager', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('File Manager', route('filemanager.index'));
 });
 
 //===========================ROLES============================

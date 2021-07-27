@@ -1,16 +1,17 @@
 @extends('layouts.inner-page')
+
 @section('title')
-    {{ trans('homepage.title.category', ['title' => $category->title]) }}
+    {{ trans('homepage.title.tag', ['title' => $tag->title]) }}
 @endsection
 
 @section('content')
     <!-- Title -->
     <h2 class="mt-4 mb-3">
-        {{ trans('homepage.title.category', ['title' => $category->title]) }}
+        {{ trans('homepage.title.ctag', ['title' => $tag->title]) }}
     </h2>
 
     <!-- Breadcrumb:start -->
-    {{ Breadcrumbs::render('homepage_post-category', $category->title) }}
+    {{ Breadcrumbs::render('homepage_post-tags', $tag->title) }}
     <!-- Breadcrumb:end -->
     <div class="row">
         <div class="col-lg-8">
@@ -59,25 +60,10 @@
                 </h5>
                 <div class="card-body">
                     <div class="row">
-                        <ul class="list-unstyled">
-                            <li>
-                                @if ($category->slug == $categoryRoot->slug)
-                                    {{ $categoryRoot->title }}
-                                @else
-                                    <a href="{{ route('homepage.post-category', ['slug' => $categoryRoot->slug]) }}">
-                                        {{ $categoryRoot->title }}
-                                    </a>
-                                @endif
-                                <!-- category descendants:start -->
-                                @if ($categoryRoot->descendants)
-                                    @include('homepage.sub-categories', ['categoryRoot' => $categoryRoot->descendants,
-                                    'category'=> $category])
-                                @endif
-                            </li>
-
-                            <!-- category descendants:end -->
-
-                        </ul>
+                        @foreach ($tags as $tag)
+                            <a href="{{ route('homepage.posts.tag', ['slug' => $tag->slug]) }}"
+                                class="btn-learn-more py-3 px-5">{{ $tag->title }}</a>
+                        @endforeach
                     </div>
                 </div>
             </div>

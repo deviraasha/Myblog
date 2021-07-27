@@ -63,10 +63,10 @@
                                     @enderror
                                 </div>
                             </div>
-
-                            <div class="col-sm-8 col-md-5 mx-auto">
+                            <div class="footer text-center pb-3">
                                 <button type="submit" class="btn btn-primary btn btn-primary btn-round">Get Started</button>
                             </div>
+
                         </form>
                     </div>
                 </div>

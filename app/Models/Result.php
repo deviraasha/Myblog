@@ -21,4 +21,8 @@ class Result extends Model
     {
         return $this->belongsTo(Biodata::class, 'biodata_id');
     }
+    public function category()
+    {
+        return $this->belongsTo(CategoryInput::class, 'category_input_id');
+    }
 }

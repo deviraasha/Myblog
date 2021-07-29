@@ -1,9 +1,9 @@
 <?php
 
 use App\Http\Controllers\BiodataController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CategoryInputController;
 use App\Http\Controllers\ResultController;
-use App\Http\Controllers\RuleController;
 use App\Http\Controllers\VariableInputController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -27,13 +27,13 @@ Route::get('/categories/{slug}', [\App\Http\Controllers\HomepageController::clas
 Route::get('/tags', [\App\Http\Controllers\HomepageController::class, 'showTags'])->name('homepage.tags');
 Route::get('/search', [\App\Http\Controllers\HomepageController::class, 'searchPost'])->name('homepage.search-post');
 
-//Testing DB
-Route::get('/test-biodata', [BiodataController::class, 'index']);
-Route::get('/test-category-input', [CategoryInputController::class, 'index']);
-Route::get('/test-result', [ResultController::class, 'index']);
-Route::get('/test-rule', [RuleController::class, 'index']);
-Route::get('/test-variable-input', [VariableInputController::class, 'index']);
-//End Testing
+//Fuzzy DB
+Route::get('/test-category', [CategoryInputController::class, 'index']);
+Route::get('/result', [ResultController::class, 'index']);
+Route::get('/testing-fuzzy', [VariableInputController::class, 'index']);
+Route::post('/create-bio', [BiodataController::class, 'create']);
+Route::get('/biodata', [BiodataController::class, 'index']);
+//End Fuzzy
 
 Auth::routes([
     'register' => false,

@@ -18,6 +18,10 @@ class CategoryInput extends Model
 
     public function variable()
     {
-        return $this->hashMany(VariableInput::class, 'category_input_id');
+        return $this->hasMany(VariableInput::class, 'category_input_id');
+    }
+    public function result()
+    {
+        return $this->hasMany(Result::class, 'category_input_id');
     }
 }

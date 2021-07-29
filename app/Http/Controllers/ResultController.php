@@ -14,7 +14,8 @@ class ResultController extends Controller
      */
     public function index()
     {
-        $data = Result::all();
+        // $data = Result::all();
+        setcookie('biodata_id', '');
     }
 
     /**

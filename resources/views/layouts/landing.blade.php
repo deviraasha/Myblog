@@ -34,14 +34,69 @@
                         this text here. Add here all the information that can make you or your product create the first
                         impression.</h4>
                     <br>
-                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"
-                        class="btn btn-primary btn-round">
+                    <a data-toggle="modal" data-target="#guideline" class="btn btn-primary btn-round">
                         TEST KECERDASAN
                     </a>
                 </div>
             </div>
         </div>
     </div>
+
+
+    <div class="modal fade bd-example-modal-lg" id="guideline" tabindex="-1" role="">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="card card-signup card-plain">
+                    <div class="modal-header">
+                        <h5 class="modal-title card-title">Guideline Fuzzy</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <i class="material-icons">clear</i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img class="d-block w-100" src="../../../assets/img/bg2.jpg" alt="First slide">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="../../../assets/img/bg3.jpg" alt="Second slide">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="../../../assets/img/bg.jpg" alt="Third slide">
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                                data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                                data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-end">
+                        <button type="button" class="btn btn-primary btn-link btn-wd btn-lg" data-dismiss="modal"
+                            aria-label="Close">
+                            Kembali
+                        </button>
+                        <a href="/biodata" class=" btn btn-primary btn-link btn-wd btn-lg">Lanjutkan</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
     <div class="main main-raised">
         <div class="container">
             <div class="section text-center">

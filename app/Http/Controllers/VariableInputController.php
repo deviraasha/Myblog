@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Result;
 use App\Models\VariableInput;
 use Illuminate\Http\Request;
 
@@ -14,9 +15,17 @@ class VariableInputController extends Controller
      */
     public function index()
     {
-        $data = VariableInput::all();
+        // dd(decrypt($_COOKIE['biodata_id']));
 
-        dd($data);
+        //find biodata
+        try {
+            $cacheBio = $_COOKIE['biodata_id'];
+        } catch (\Throwable $th) {
+            return redirect('/biodata');
+        }
+        $idBio = decrypt($cacheBio);
+        $data = Result::where('biodata_id', $idBio)->with('category.variable')->paginate(1);
+        return view('fuzzy.testing', compact('data'));
     }
 
     /**

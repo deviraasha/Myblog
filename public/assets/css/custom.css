@@ -1,0 +1,13 @@
+@media only screen and (max-width: 600px) {
+    /* CSS HERE ONLY ON PHONE */
+.atas{
+    margin-top: 130px !important;
+}
+}
+
+@media only screen and (min-width: 601px) {
+    /* CSS HERE ONLY ON PHONE */
+.atas{
+    margin-top: 150px !important;
+}
+}

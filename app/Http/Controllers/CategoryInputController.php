@@ -14,7 +14,7 @@ class CategoryInputController extends Controller
      */
     public function index()
     {
-        $data = CategoryInput::all();
+        $data = CategoryInput::with('result', 'variable')->get();
 
         dd($data);
     }

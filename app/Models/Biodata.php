@@ -12,7 +12,7 @@ class Biodata extends Model
     protected $connection = 'mysql';
     protected $table = 'biodata';
     protected $primaryKey = 'id';
-    public $incrementing = false;
+    public $incrementing = true;
     public $keyType = 'int';
     public $timestamps = true;
     protected $fillable = ['id', 'name', 'gender', 'place_of_birth', 'address', 'updated_at', 'created_at'];

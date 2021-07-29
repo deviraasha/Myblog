@@ -13,7 +13,9 @@ class HomepageController extends Controller
     public function home()
     {
         return view('homepage.home', [
-            'posts' => Post::publish()->latest()->paginate($this->perpage)
+            'posts' => Post::publish()->latest()->paginate($this->perpage),
+            'categories' => Category::all(),
+            'tags' => Tag::all()
         ]);
     }
 
@@ -54,6 +56,33 @@ class HomepageController extends Controller
             'posts' => $posts,
             'category' => $category,
             'categoryRoot' => $categoryRoot
+        ]);
+    }
+
+    public function showPostsByTag($slug)
+    {
+        $posts = Post::publish()->whereHas('tags', function ($query) use ($slug) {
+            return $query->where('slug', $slug);
+        })->paginate($this->perpage);
+
+        $tag = Tag::where('slug', $slug)->first();
+        $tags = Tag::search($tag->title)->get();
+        return view('homepage.post-tags', [
+            'posts' => $posts,
+            'tag' => $tag,
+            'tags' => $tags
+        ]);
+    }
+
+    public function showPostDetail($slug)
+    {
+        $post = Post::publish()->with(['categories', 'tags'])->where('slug', $slug)->first();
+        if (!$post) {
+            return redirect()->route('homepage.home');
+        }
+
+        return view('homepage.post-detail', [
+            'post' => $post
         ]);
     }
 }

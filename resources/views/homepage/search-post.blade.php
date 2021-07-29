@@ -1,5 +1,4 @@
-@extends('layouts.homepage')
-@extends('layouts.homepage.hero')
+@extends('layouts.inner-page')
 @section('title')
     {{ request()->get('keyword') }}
 @endsection
@@ -36,7 +35,8 @@
                             <div class="col-lg-6">
                                 <h2 class="card-title">{{ $post->title }}</h2>
                                 <p class="card-text">{{ $post->description }}n</p>
-                                <a href="" class="btn btn-primary">
+                                <a href="{{ route('homepage.posts.detail', ['slug' => $post->slug]) }}"
+                                    class="btn btn-primary">
                                     {{ trans('homepage.button.read_more.value') }}
                                 </a>
                             </div>
@@ -58,8 +58,8 @@
 
     <!-- pagination:start -->
     @if ($posts->hasPages())
-        <div class="row">
-            <div class="col">
+        <div class="row pt-5">
+            <div class="col pagination pagination-primary justify-content-center">
                 {{ $posts->links('vendor.pagination.bootstrap-4') }}
             </div>
         </div>

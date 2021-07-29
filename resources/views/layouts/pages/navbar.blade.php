@@ -1,5 +1,5 @@
-<nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100"
-    id="sectionsNav">
+<nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg bg-primary"
+    color-on-scroll="100" id="sectionsNav">
     <div class="container">
         <div class="navbar-translate">
             <a class="navbar-brand" href="{{ route('homepage.home') }}">
@@ -17,12 +17,12 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <form class="form-inline ml-auto" action="{{ route('homepage.search-post') }}" method="GET">
-                        <div class="form-group has-white">
-                            <input type="text" class="form-control"
+                        <div class="form-group">
+                            <input type="text" class="form-control text-white"
                                 placeholder="{{ trans('homepage.form_control.input.search.placeholder') }}"
                                 name="keyword" value="{{ request()->get('keyword') }}" type="search">
                         </div>
-                        <button type="submit" class="btn btn-white btn-raised btn-fab btn-round">
+                        <button type="submit" class="btn btn-primary btn-raised btn-fab btn-round">
                             <i class="material-icons">search</i>
                         </button>
                     </form>

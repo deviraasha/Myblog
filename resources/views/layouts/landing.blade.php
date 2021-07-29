@@ -99,32 +99,15 @@
 
     <div class="main main-raised">
         <div class="container">
+
             <div class="section text-center">
                 <h2 class="title">{{ trans('homepage.title.home') }}</h2>
                 @yield('content')
             </div>
         </div>
     </div>
-    <footer class="footer footer-default">
-        <div class="container">
-            <nav class="float-left">
-                <ul>
-                    <li>
-                        <a href="https://www.creative-tim.com/">
-                            Creative Tim
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="copyright float-right">
-                &copy;
-                <script>
-                    document.write(new Date().getFullYear())
-                </script>, made with <i class="material-icons">favorite</i> by
-                <a href="https://www.creative-tim.com/" target="blank">Creative Tim</a> for a better web.
-            </div>
-        </div>
-    </footer>
+
+    @include('layouts.pages.footer')
     <!--   Core JS Files   -->
     <script src="{{ asset('../assets/js/core/jquery.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('../assets/js/core/popper.min.js') }}" type="text/javascript"></script>

@@ -4,21 +4,21 @@
     {{ trans('homepage.title.categories') }}
 @endsection
 
-<!-- ======= Breadcrumbs ======= -->
-<section id="breadcrumbs" class="breadcrumbs">
-    <div class="container">
-        <ol>
-            <li><a href="">{{ Breadcrumbs::render('homepage_categories') }}</a></li>
-        </ol>
-    </div>
-</section><!-- End Breadcrumbs -->
 
 @section('content')
+    <!-- Title -->
+    <h2 class="mt-4 mb-3">
+        {{ trans('homepage.title.categories') }}
+    </h2>
+
+    <!-- Breadcrumb:start -->
+    {{ Breadcrumbs::render('homepage_categories') }}
+    <!-- Breadcrumb:end -->
     <!-- List category -->
     <div class="row pt-3">
         @forelse ($categories as $category)
             <!-- true -->
-            <div class="col-lg-4 col-sm-6 portfolio-item">
+            <div class="col-lg-4 col-sm-6 portfolio-item pt-3">
                 <div class="card h-100">
                     <!-- thumbnail:start -->
                     @if (file_exists(public_path($category->thumbnail)))
@@ -31,7 +31,8 @@
                     <!-- thumbnail:end -->
                     <div class="card-body">
                         <h4 class="card-title">
-                            <a href="{{ route('homepage.post-category', ['slug' => $category->slug]) }}">
+                            <a href="{{ route('homepage.post-category', ['slug' => $category->slug]) }}"
+                                class="btn btn-outline-primary">
                                 {{ $category->title }}
                             </a>
                         </h4>
@@ -55,8 +56,8 @@
 
     <!-- pagination:start -->
     @if ($categories->hasPages())
-        <div class="row">
-            <div class="col">
+        <div class="row pt-5">
+            <div class="col pagination pagination-primary justify-content-center">
                 {{ $categories->links('vendor.pagination.bootstrap-4') }}
             </div>
         </div>

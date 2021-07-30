@@ -37,7 +37,9 @@
                 </div>
                 <div class="row">
                     <div class="col-12 text-right">
-                        <button class="btn btn-primary btn-round" type="submit">AKhiri</button>
+                        <a href="/result-destroy">
+                            <button class="btn btn-primary btn-round" type="submit">AKhiri</button>
+                        </a>
                     </div>
                 </div>
             </div>

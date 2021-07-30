@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\BiodataController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\CategoryInputController;
 use App\Http\Controllers\ResultController;
 use App\Http\Controllers\VariableInputController;
 use Illuminate\Support\Facades\Auth;
@@ -22,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/localization/{language}', [\App\Http\Controllers\LocalizationController::class, 'switch'])->name('localization.switch');
 
 Route::get('/', [\App\Http\Controllers\HomepageController::class, 'home', 'showCategories'])->name('homepage.home');
-Route::get('/post/{slug}', [\App\Http\Controllers\HomepageController::class,  'showPostDetail'])->name('homepage.posts.detail');
+Route::get('/post/{slug}', [\App\Http\Controllers\HomepageController::class, 'showPostDetail'])->name('homepage.posts.detail');
 Route::get('/categories', [\App\Http\Controllers\HomepageController::class, 'showCategories'])->name('homepage.categories');
 Route::get('/categories/{slug}', [\App\Http\Controllers\HomepageController::class, 'showPostsByCategory'])->name('homepage.post-category');
 Route::get('/tags', [\App\Http\Controllers\HomepageController::class, 'showTags'])->name('homepage.tags');
@@ -30,8 +29,10 @@ Route::get('/tags/{slug}', [\App\Http\Controllers\HomepageController::class, 'sh
 Route::get('/search', [\App\Http\Controllers\HomepageController::class, 'searchPost'])->name('homepage.search-post');
 
 //Fuzzy DB
-Route::get('/test-category', [CategoryInputController::class, 'index']);
+
+Route::get('/result-destroy', [ResultController::class, 'destroy']);
 Route::get('/result', [ResultController::class, 'index']);
+Route::post('/checking', [VariableInputController::class, 'checking']);
 Route::get('/testing-fuzzy', [VariableInputController::class, 'index']);
 Route::post('/create-bio', [BiodataController::class, 'create']);
 Route::get('/biodata', [BiodataController::class, 'index']);

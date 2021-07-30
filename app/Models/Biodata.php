@@ -15,7 +15,7 @@ class Biodata extends Model
     public $incrementing = true;
     public $keyType = 'int';
     public $timestamps = true;
-    protected $fillable = ['id', 'name', 'gender', 'place_of_birth', 'address', 'updated_at', 'created_at'];
+    protected $fillable = ['id', 'name', 'gender', 'age', 'email', 'place_of_birth', 'address', 'updated_at', 'created_at'];
 
     public function result()
     {

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Result;
-use Illuminate\Http\Request;
 
 class ResultController extends Controller
 {
@@ -14,73 +13,24 @@ class ResultController extends Controller
      */
     public function index()
     {
-        // $data = Result::all();
+
+        //find biodata
+        try {
+            $cacheBio = $_COOKIE['biodata_id'];
+        } catch (\Throwable $th) {
+            return redirect('/biodata');
+        }
+        $idBio = decrypt($cacheBio);
+        $data = Result::where('biodata_id', $idBio)->with('biodata', 'category')->get();
+        return view('fuzzy.result', compact('data'));
+    }
+    public function destroy()
+    {
+
         setcookie('biodata_id', '');
+
+        return redirect('/');
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Result  $result
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Result $result)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Result  $result
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Result $result)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Result  $result
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Result $result)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Result  $result
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Result $result)
-    {
-        //
-    }
 }

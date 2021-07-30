@@ -12,62 +12,79 @@
             </div>
         </div>
     </div>
-
     <div class="main main-raised my-2">
         <div class="container">
             <div class="section">
-                <div class="row">
-                    <div class="col">
-                        <form class="mx-3">
+                <form class="mx-3" action="/checking" method="POST">
+                    @csrf
+                    <input type="text" name="category_input_id" value="{{ $value->category_input_id }}"
+                        class="form-control" id="category_input_id" hidden>
+                    <div class="row">
+                        <div class="col">
                             @foreach ($data as $value)
                                 @foreach ($value->category->variable as $key => $varValue)
+                                    <?php $a = 'v' . ($key + 1); ?>
                                     <div class="form-group">
-                                        <b for="{{ $key + 1 }}">{{ $varValue->name_variable }}</b>
+                                        <b for="{{ $key + 1 }}">{{ $key + 1 . '.  ' . $varValue->name_variable }}</b>
                                         <select class="form-control selectpicker" data-style="btn btn-link"
-                                            name="{{ $key + 1 }}" id="{{ $key + 1 }}" required>
-                                            <option value="">choose number</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
+                                            name="v{{ $key + 1 }}" id="{{ $key + 1 }}" required>
 
+                                            @if ($value->$a)
+                                                <option value="{{ $value->$a }}">{{ $value->$a }}</option>
+
+                                            @else
+                                                <option value="">choose number</option>
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                            @endif
                                         </select>
                                     </div>
                                 @endforeach
                             @endforeach
-                        </form>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 text-right">
-                        <nav aria-label="...">
-                            <ul class="pagination">
-                                <li class="page-item disabled">
-                                    <span class="page-link">Previous</span>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="javascript:;">1</a></li>
-                                <li class="page-item active">
-                                    <span class="page-link">
-                                        2
-                                        <span class="sr-only">(current)</span>
-                                    </span>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="javascript:;">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="javascript:;">Next</a>
-                                </li>
-                            </ul>
-                        </nav>
+                    <div class="row">
+                        <div class="col-12 text-right">
+                            {{-- @if ($data->currentPage() > 1)
+                                <input type="text" name="page" value="{{ $data->currentPage() - 1 }}" class="form-control"
+                                    id="page" hidden>
+                                <button class="btn btn-default btn-round" type="submit">Back
+                                    {{ $data->currentPage() - 1 }}</button>
+                            @endif --}}
+                            <input type="text" name="page" value="{{ $data->currentPage() + 1 }}" class="form-control"
+                                id="page" hidden>
+                            @if ($data->currentPage() < $data->total())
+                                <button class="btn btn-primary btn-round" type="submit">Next</button>
+                            @endif
+                            @if ($data->currentPage() == $data->total())
+                                <button class="btn btn-primary btn-round" type="submit">Finish</button>
+                            @endif
+                        </div>
                     </div>
-                </div>
-            </div>
+                </form>
 
+                {{-- @if ($data->currentPage() == $data->total())
+                    <div class="row">
+                        <div class="col-12 text-right">
+                            <a href="/result">
+                                <button class="btn btn-primary btn-round">
+                                    Finish
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                @endif --}}
+
+            </div>
         </div>
     </div>
 @endsection

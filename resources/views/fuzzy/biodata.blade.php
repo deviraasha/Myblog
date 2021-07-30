@@ -23,26 +23,40 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="name">Name</label>
-                                    <input type="name" name="name" class="form-control" id="name" placeholder="Your Name">
+                                    <input type="name" name="name" class="form-control" id="name" placeholder="Your Name"
+                                        required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="gender">Select Gender</label>
                                     <select class="form-control selectpicker" name="gender" data-style="btn btn-link"
-                                        id="gender">
+                                        id="gender" required>
+                                        <option value=""> -- Choice Gender --</option>
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
                                     </select>
                                 </div>
                             </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="place_of_birth">Place Of Birth</label>
+                                    <input type="text" name="place_of_birth" class="form-control" id="place_of_birth"
+                                        placeholder="Jakarta Timur" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="place_of_birth">Age</label>
+                                    <input type="number" name="age" class="form-control" id="age" min="1" placeholder="17"
+                                        required>
+                                </div>
+                            </div>
                             <div class="form-group">
-                                <label for="place_of_birth">Place Of Birth</label>
-                                <input type="text" name="place_of_birth" class="form-control" id="place_of_birth"
-                                    placeholder="Jakarta Timur">
+                                <label for="email">Email</label>
+                                <input type="email" name="email" class="form-control" id="email"
+                                    placeholder="example@gmail.com" required>
                             </div>
                             <div class="form-group">
                                 <label for="address">Address</label>
                                 <input type="text" name="address" class="form-control" id="address"
-                                    placeholder="Jln jakarta no 123">
+                                    placeholder="Jln jakarta no 123" required>
                             </div>
                             <div class="text-right">
                                 <button type="submit" class="btn btn-primary">Lanjutkan</button>

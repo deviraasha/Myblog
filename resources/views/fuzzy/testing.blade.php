@@ -63,7 +63,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mt-5">
                         <div class="col-12 text-right">
                             {{-- @if ($data->currentPage() > 1)
                                 <input type="text" name="page" value="{{ $data->currentPage() - 1 }}" class="form-control"
@@ -79,6 +79,11 @@
                             @if ($data->currentPage() == $data->total())
                                 <button class="btn btn-primary btn-round" type="submit">Finish</button>
                             @endif
+                        </div>
+                        <div class="col-12 text-left">
+                            <span>
+                                {{ 'Page ' . $data->currentPage() . ' of ' . $data->total() }}
+                            </span>
                         </div>
                     </div>
                 </form>

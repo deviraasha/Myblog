@@ -19,6 +19,6 @@ class Biodata extends Model
 
     public function result()
     {
-        return $this->hashMany(Result::class, 'biodata_id');
+        return $this->hasMany(Result::class, 'biodata_id');
     }
 }

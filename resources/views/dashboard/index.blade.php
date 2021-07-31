@@ -1,9 +1,5 @@
 @extends('layouts.dashboard')
 
-@section('title')
-    {{ trans('dashboard.title.index') }}
-@endsection
-
 @section('breadcrumbs')
     {{ Breadcrumbs::render('dashboard_home') }}
 @endsection

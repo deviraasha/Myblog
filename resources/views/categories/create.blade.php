@@ -1,9 +1,5 @@
 @extends('layouts.dashboard')
 
-@section('title')
-    {{ trans('categories.title.create') }}
-@endsection
-
 @section('breadcrumbs')
     {{ Breadcrumbs::render('add_category') }}
 @endsection
@@ -12,6 +8,9 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
+                <div class="card-header card-header-primary">
+                    {{ Breadcrumbs::render('add_category') }}
+                </div>
                 <div class="card-body">
                     <form action="{{ route('categories.store') }}" method="POST">
                         @csrf
@@ -52,12 +51,12 @@
                                 <div class="input-group-prepend">
                                     {{-- data-input="thumbnail" data-preview"holder" --}}
                                     <button id="button_category_thumbnail" data-input="input_category_thumbnail"
-                                        data-preview="holder" class="btn btn-primary" type="button">
+                                        data-preview="holder" class="btn btn-primary btn-round" type="button">
                                         {{ trans('categories.button.browse.value') }}
                                     </button>
                                 </div>
                                 <input id="input_category_thumbnail" name="thumbnail" value="{{ old('thumbnail') }}"
-                                    type="text" class="form-control @error('thumbnail') is-invalid @enderror"
+                                    type="text" class="form-control mt-2 @error('thumbnail') is-invalid @enderror"
                                     placeholder="{{ trans('categories.form_control.input.thumbnail.placeholder') }}"
                                     readonly />
                                 @error('thumbnail')

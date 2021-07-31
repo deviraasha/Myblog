@@ -13,6 +13,9 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
+                <div class="card-header card-header-primary">
+                    {{ Breadcrumbs::render('roles_add') }}
+                </div>
                 <form action="{{ route('roles.store') }}" method="POST">
                     @method('POST')
                     @csrf

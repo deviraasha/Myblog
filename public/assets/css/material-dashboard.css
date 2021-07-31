@@ -12169,12 +12169,12 @@ fieldset[disabled] .switch label:focus,
 fieldset[disabled] .is-focused .switch label,
 fieldset[disabled] .is-focused .switch label:hover,
 fieldset[disabled] .is-focused .switch label:focus {
-    color: #999999;
+    color: #000000;
 }
 
 [class^="bmd-label"],
 [class*=" bmd-label"] {
-    color: #999999;
+    color: #000000;
 }
 
 .form-control,
@@ -14022,7 +14022,7 @@ fieldset[disabled][disabled] .has-rose .form-control,
     [class^="bmd-label"].bmd-label-floating,
 .bmd-form-group:not(.has-success):not(.has-danger)
     [class*=" bmd-label"].bmd-label-floating {
-    color: #aaaaaa;
+    color: #000000;
 }
 
 .bmd-form-group [class^="bmd-label"],
@@ -14078,7 +14078,7 @@ fieldset[disabled][disabled] .has-rose .form-control,
 }
 
 .bmd-form-group label {
-    color: #aaaaaa;
+    color: #000000;
 }
 
 .bmd-form-group .radio label,
@@ -14155,7 +14155,7 @@ fieldset[disabled][disabled] .has-rose .form-control,
 }
 
 .bmd-form-group.bmd-form-group-sm label {
-    color: #aaaaaa;
+    color: #000000;
 }
 
 .bmd-form-group.bmd-form-group-sm .radio label,
@@ -14244,7 +14244,7 @@ fieldset[disabled][disabled] .has-rose .form-control,
 }
 
 .bmd-form-group.bmd-form-group-lg label {
-    color: #aaaaaa;
+    color: #000000;
 }
 
 .bmd-form-group.bmd-form-group-lg .radio label,
@@ -14333,7 +14333,7 @@ input::placeholder {
 }
 
 label {
-    color: #aaaaaa;
+    color: #000000;
 }
 
 .radio label,
@@ -18078,7 +18078,7 @@ a .material-icons {
 label {
     font-size: 14px;
     line-height: 1.42857;
-    color: #aaaaaa;
+    color: #000000;
     font-weight: 400;
 }
 
@@ -19598,7 +19598,7 @@ Copyright (c) 2015 Daniel Eden
 .ps-container > .ps-scrollbar-x-rail > .ps-scrollbar-x {
     position: absolute;
     /* please don't change 'position' */
-    background-color: #aaa;
+    background-color: rgb(0, 0, 0);
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     border-radius: 6px;
@@ -19644,7 +19644,7 @@ Copyright (c) 2015 Daniel Eden
 .ps-container > .ps-scrollbar-y-rail > .ps-scrollbar-y {
     position: absolute;
     /* please don't change 'position' */
-    background-color: #aaa;
+    background-color: rgb(2, 2, 2);
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     border-radius: 6px;

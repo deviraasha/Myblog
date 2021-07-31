@@ -104,7 +104,6 @@ class VariableInputController extends Controller
             if ($val["aturan"] == "kurang cerdas") {
                 // dd("kurang");
                 $cA = true;
-
             }
             if ($val["aturan"] == "cukup cerdas") {
                 // dd("cukup");
@@ -188,12 +187,8 @@ class VariableInputController extends Controller
         }
         // dd($ResultAkhir);
         Result::where('biodata_id', $idBio)->where('category_input_id', $request->category_input_id)
-<<<<<<< HEAD
             ->update([
-                'rule' => $dataRules,
-=======
-            ->update(['rule' => $dataRule,
->>>>>>> 2c8a9c8f6d4089d8dd772f726af21bcd3a7ecda9
+                'rule' => $dataRule,
                 'v1' => $request->v1,
                 'v2' => $request->v2,
                 'v3' => $request->v3,

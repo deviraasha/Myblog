@@ -20,36 +20,47 @@
                     <input type="text" name="category_input_id" value="{{ $value->category_input_id }}"
                         class="form-control" id="category_input_id" hidden>
                     <div class="row">
-                        <div class="col">
-                            @foreach ($data as $value)
-                                @foreach ($value->category->variable as $key => $varValue)
-                                    <?php $a = 'v' . ($key + 1); ?>
-                                    <div class="form-group">
-                                        <b for="{{ $key + 1 }}">{{ $key + 1 . '.  ' . $varValue->name_variable }}</b>
-                                        <select class="form-control selectpicker" data-style="btn btn-link"
-                                            name="v{{ $key + 1 }}" id="{{ $key + 1 }}" required>
+                        <div class="col-md col-sm-12 text-center">
+                            <img src="/testing.svg" width="100%" alt="">
+                        </div>
+                        <div class="col-md-7 tup">
+                            <div class="row">
 
-                                            @if ($value->$a)
-                                                <option value="{{ $value->$a }}">{{ $value->$a }}</option>
-
-                                            @else
-                                                <option value="">choose number</option>
-                                                <option value="0">0</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            @endif
-                                        </select>
-                                    </div>
+                                @foreach ($data as $value)
+                                    @foreach ($value->category->variable as $key => $varValue)
+                                        <?php $a = 'v' . ($key + 1); ?>
+                                        {{-- <div class="form-group"> --}}
+                                        <div class="col-md-10 col-sm-12">
+                                            <b
+                                                for="{{ $key + 1 }}">{{ $key + 1 . '.' . $varValue->name_variable }}</b>
+                                        </div>
+                                        <div class="col-md col-sm-12">
+                                            <select class="form-control selectpicker" data-style="btn btn-link"
+                                                name="v{{ $key + 1 }}" id="{{ $key + 1 }}" required>
+                                                @if ($value->$a)
+                                                    <option value="{{ $value->$a }}">{{ $value->$a }}</option>
+                                                @else
+                                                    <option value="">Select</option>
+                                                    <option value="0">0</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                    <option value="9">9</option>
+                                                    <option value="10">10</option>
+                                                @endif
+                                            </select>
+                                        </div>
+                                        {{-- </div> --}}
+                                    @endforeach
                                 @endforeach
-                            @endforeach
+
+
+                            </div>
                         </div>
                     </div>
                     <div class="row">

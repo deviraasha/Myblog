@@ -91,12 +91,65 @@ class VariableInputController extends Controller
                 }
             }
         }
-        $dataRules = json_encode($dataRule);
-        // dd($dataRule);
+        // dd(var_dump($min));
+        // $dataRules = json_encode($dataRule);
+        // dd(var_dump($dataRule));
+        //--------------------------------------------------------------------------------------------------------
         // dd($min);
-        // $integ = $this->integralA(30, 70, 0.5);
-        // dd($integ);
+        // dd($this->integralM(10, 20, 0.5));
+        $cA = false;
+        $cB = false;
+        $cC = false;
+        foreach ($min as $val) {
+            if ($val["aturan"] == "kurang cerdas") {
+                // dd("kurang");
+                $cA = true;
 
+            }
+            if ($val["aturan"] == "cukup cerdas") {
+                // dd("cukup");
+                $cB = true;
+            }
+            if ($val["aturan"] == "sangat cerdas") {
+                // dd("sangat");
+                $cC = true;
+            }
+        }
+
+        //perhitungan kurang cerdas
+        // if ($cA) {
+        //     if ($cA && $cB) {
+        //         dd("kurang & cukup **");
+        //     } elseif ($cA && $cC) {
+        //         dd("kurang & tinggi **");
+        //     } else {
+        //         dd("kurang");
+        //     }
+        // }
+        //perhitungan cukup cerdas
+        // if ($cB) {
+        //     if ($cB && $cA) {
+        //         dd("cukup & kurang **");
+        //     } elseif ($cB && $cC) {
+        //         dd("cukup & tinggi **");
+        //     } else {
+        //         dd("cukup");
+        //     }
+        // }
+        //perhitungan sangat cerdas
+        // if ($cC) {
+        //     if ($cC && $cA) {
+        //         dd("tinggi & kurang **");
+        //     } elseif ($cC && $cB) {
+        //         dd("tinggi & cukup **");
+        //     } else {
+        //         dd("tinggi");
+        //     }
+        // }
+
+        // dd("--");
+
+        //--------------------------------------------------------------------------------------------------------
         foreach ($min as $val) {
             if ($val['aturan'] == "kurang cerdas") {
                 $countDataA = array_count_values(array_column($min, 'aturan'))["kurang cerdas"];
@@ -121,22 +174,21 @@ class VariableInputController extends Controller
         if (empty($countDataC)) {
             $countDataC = 0;
         }
-
         if ($countDataA > $countDataB) {
 
             $ResultAkhir = "kurang cerdas";
         }
-        if ($countDataB > $countDataC && $countDataB > $countDataA) {
+        if ($countDataB >= $countDataC && $countDataB >= $countDataA) {
 
             $ResultAkhir = "cukup cerdas";
         }
-        if ($countDataC > $countDataB && $countDataC > $countDataA) {
+        if ($countDataC >= $countDataB && $countDataC >= $countDataA) {
 
             $ResultAkhir = "sangat cerdas";
         }
-        // dd($min);
+        // dd($ResultAkhir);
         Result::where('biodata_id', $idBio)->where('category_input_id', $request->category_input_id)
-            ->update(['rule' => $dataRules,
+            ->update(['rule' => $dataRule,
                 'v1' => $request->v1,
                 'v2' => $request->v2,
                 'v3' => $request->v3,
@@ -147,7 +199,7 @@ class VariableInputController extends Controller
 
         $data = Result::where('biodata_id', $idBio)->with('category.variable')->paginate(1);
         // dd($request->page);
-        if ($request->page < $data->total()) {
+        if ($request->page <= $data->total()) {
             return redirect('/testing-fuzzy?page=' . $request->page);
         }
         if ($request->page > $data->total()) {
@@ -246,66 +298,6 @@ class VariableInputController extends Controller
         }
         return $data;
     }
-
-    // Check Output
-    public function outputValue($x)
-    {
-        $data = [];
-        //kurang cerdas
-        if ($x <= 4) {
-            $result = (4 - $x) / 4;
-            $data["kurang_cerdas"] = $result;
-        }
-
-        //cukup cerdas
-        if ($x <= 5) {
-            $result = ($x - 1) / 4;
-            $data["cukup_cerdas"] = $result;
-        }
-        //sangat cerdas
-        if ($x > 5 && $x <= 9) {
-            $result = (9 - $x) / 4;
-            $data["sedang"] = $result;
-        }
-
-        //tinggi
-        if ($x > 5 && $x <= 10 || $x > 10) {
-            $result = ($x - 6) / 4;
-            $data["tinggi"] = $result;
-        }
-
-        return $data;
-    }
-    // FUZZIFIKASI
-    public function outputName($x)
-    {
-        $data = [];
-        //rendah
-        if ($x <= 4) {
-            $result = (4 - $x) / 4;
-            $data[] = "rendah";
-        }
-
-        //sedang
-        if ($x <= 5) {
-            $result = ($x - 1) / 4;
-            $data[] = "sedang";
-        }
-        //sedang
-        if ($x > 5 && $x <= 9) {
-            $result = (9 - $x) / 4;
-            $data[] = "sedang";
-        }
-
-        //tinggi
-        if ($x > 5 && $x <= 10 || $x > 10) {
-            $result = ($x - 6) / 4;
-            $data[] = "tinggi";
-        }
-
-        return $data;
-    }
-
     public function integralM($a, $b, $c)
     {
         $x = $c / 2;

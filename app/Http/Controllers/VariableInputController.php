@@ -38,7 +38,7 @@ class VariableInputController extends Controller
         }
         $idBio = decrypt($cacheBio);
 
-// FUZZIFIKASI
+        // FUZZIFIKASI
         $v1 = $this->fuzzifikasiValue($request->v1);
         $v2 = $this->fuzzifikasiValue($request->v2);
         $v3 = $this->fuzzifikasiValue($request->v3);
@@ -188,7 +188,12 @@ class VariableInputController extends Controller
         }
         // dd($ResultAkhir);
         Result::where('biodata_id', $idBio)->where('category_input_id', $request->category_input_id)
+<<<<<<< HEAD
+            ->update([
+                'rule' => $dataRules,
+=======
             ->update(['rule' => $dataRule,
+>>>>>>> 2c8a9c8f6d4089d8dd772f726af21bcd3a7ecda9
                 'v1' => $request->v1,
                 'v2' => $request->v2,
                 'v3' => $request->v3,
@@ -205,10 +210,9 @@ class VariableInputController extends Controller
         if ($request->page > $data->total()) {
             return redirect('/result');
         }
-
     }
 
-// FUZZIFIKASI
+    // FUZZIFIKASI
     public function fuzzifikasiValue($x)
     {
         $data = [];
@@ -286,11 +290,12 @@ class VariableInputController extends Controller
     public function rules($x, $y)
     {
         $data = array();
-// INFERENSI
+        // INFERENSI
         $rule = Rule::all();
         foreach ($rule as $value) {
             foreach ($x as $val) {
-                if ($value->$y == $val
+                if (
+                    $value->$y == $val
                 ) {
                     $data[$value->id] = $value->id;
                 }
@@ -313,5 +318,4 @@ class VariableInputController extends Controller
         $result = $y - $x;
         return $result;
     }
-
 }

@@ -14,20 +14,9 @@
                             <div class="card-body">
                                 <div class="card-header card-header-primary text-center">
                                     <h4 class="card-title">Login</h4>
-                                    <div class="social-line">
-                                        <a href="#pablo" class="btn btn-just-icon btn-link">
-                                            <i class="fa fa-facebook-square"></i>
-                                        </a>
-                                        <a href="#pablo" class="btn btn-just-icon btn-link">
-                                            <i class="fa fa-twitter"></i>
-                                        </a>
-                                        <a href="#pablo" class="btn btn-just-icon btn-link">
-                                            <i class="fa fa-google-plus"></i>
-                                        </a>
-                                    </div>
                                 </div>
-                                <p class="description text-center">Or Be Classical</p>
-                                <div class="input-group">
+                                <p class="description text-center">Admin Only</p>
+                                <div class="input-group pt-3">
                                     <div class="input-group-prepend">
                                         <label for="input_login_email"></label>
                                         <span class="input-group-text">

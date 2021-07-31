@@ -15693,7 +15693,7 @@ textarea {
 .navbar.bg-primary .dropdown-item:focus {
     box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14),
         0 7px 10px -5px rgba(156, 39, 176, 0.4);
-    background-color: #37517e;
+    background-color: #9c27b0;
     color: #ffffff;
 }
 
@@ -16948,7 +16948,7 @@ h2.title {
 .dropdown-menu a:active {
     box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14),
         0 7px 10px -5px rgba(156, 39, 176, 0.4);
-    background-color: #47b027;
+    background-color: #d176e1;
     color: #fff !important;
 }
 
@@ -18587,7 +18587,7 @@ footer .pull-center {
 }
 
 .card-login .card-body {
-    padding: 0px 30px 0px 10px;
+    padding: 20px;
 }
 
 .card-login .form-check {

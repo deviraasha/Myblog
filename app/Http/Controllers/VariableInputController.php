@@ -97,26 +97,26 @@ class VariableInputController extends Controller
         //--------------------------------------------------------------------------------------------------------
         // dd($min);
         // dd($this->integralM(10, 20, 0.5));
-        $cA = false;
-        $cB = false;
-        $cC = false;
-        foreach ($min as $val) {
-            if ($val["aturan"] == "kurang cerdas") {
-                // dd("kurang");
-                $cA = true;
+        // $cA = false;
+        // $cB = false;
+        // $cC = false;
+        // foreach ($min as $val) {
+        //     if ($val["aturan"] == "kurang cerdas") {
+        //         // dd("kurang");
+        //         $cA = true;
 
-            }
-            if ($val["aturan"] == "cukup cerdas") {
-                // dd("cukup");
-                $cB = true;
-            }
-            if ($val["aturan"] == "sangat cerdas") {
-                // dd("sangat");
-                $cC = true;
-            }
-        }
+        //     }
+        //     if ($val["aturan"] == "cukup cerdas") {
+        //         // dd("cukup");
+        //         $cB = true;
+        //     }
+        //     if ($val["aturan"] == "sangat cerdas") {
+        //         // dd("sangat");
+        //         $cC = true;
+        //     }
+        // }
 
-        //perhitungan kurang cerdas
+        // //perhitungan kurang cerdas
         // if ($cA) {
         //     if ($cA && $cB) {
         //         dd("kurang & cukup **");
@@ -126,7 +126,7 @@ class VariableInputController extends Controller
         //         dd("kurang");
         //     }
         // }
-        //perhitungan cukup cerdas
+        // //perhitungan cukup cerdas
         // if ($cB) {
         //     if ($cB && $cA) {
         //         dd("cukup & kurang **");
@@ -136,14 +136,20 @@ class VariableInputController extends Controller
         //         dd("cukup");
         //     }
         // }
-        //perhitungan sangat cerdas
+        // //perhitungan sangat cerdas
         // if ($cC) {
         //     if ($cC && $cA) {
         //         dd("tinggi & kurang **");
         //     } elseif ($cC && $cB) {
         //         dd("tinggi & cukup **");
         //     } else {
-        //         dd("tinggi");
+        //         // dd("tinggi");
+        //         // dd($min);
+        //         $dMax = $this->cMinMax($min, "max");
+        //         $dMin = $this->cMinMax($min, "min");
+        //         $t1 = $this->cT(60, 40, $dMin);
+        //         $t2 = $this->cT(60, 40, $dMax);
+
         //     }
         // }
 
@@ -188,12 +194,7 @@ class VariableInputController extends Controller
         }
         // dd($ResultAkhir);
         Result::where('biodata_id', $idBio)->where('category_input_id', $request->category_input_id)
-<<<<<<< HEAD
-            ->update([
-                'rule' => $dataRules,
-=======
             ->update(['rule' => $dataRule,
->>>>>>> 2c8a9c8f6d4089d8dd772f726af21bcd3a7ecda9
                 'v1' => $request->v1,
                 'v2' => $request->v2,
                 'v3' => $request->v3,
@@ -317,5 +318,26 @@ class VariableInputController extends Controller
         $y = ($c) * $b;
         $result = $y - $x;
         return $result;
+    }
+
+    public function cMinMax($data, $stat)
+    {
+        foreach ($data as $item) {
+            $minmax[] = $item["value"];
+        }
+
+        if ($stat == "min") {
+            return min($minmax);
+        }
+        if ($stat == "max") {
+            return max($minmax);
+        }
+    }
+
+    public function cT($a, $b, $c)
+    {
+        $x = ($b * $c) + $a;
+
+        return $x;
     }
 }

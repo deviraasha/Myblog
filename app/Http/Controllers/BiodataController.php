@@ -6,6 +6,7 @@ use App\Models\Biodata;
 use App\Models\CategoryInput;
 use App\Models\Result;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class BiodataController extends Controller
 {
@@ -43,6 +44,19 @@ class BiodataController extends Controller
         } else {
             return view('fuzzy.biodata');
         }
+    }
+
+    public function destroy(Request $request)
+    {
+        // dd($request->all());
+        Biodata::where('id', $request->id)->delete();
+        Result::where('biodata_id', $request->id)->delete();
+        Alert::success(
+            "Deleted History",
+            "History delete succesfully",
+        );
+        return redirect()->back();
+
     }
 
 }

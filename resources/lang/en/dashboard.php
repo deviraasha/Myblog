@@ -5,12 +5,13 @@ language : English
 return [
     'title' => [
         'index' => "Dashboard",
+        'histori' => "History of Intelligence Test"
     ],
     'greeting' => [
         'welcome' => "Welcome :name"
     ],
     'menu' => [
-        'master' => 'Master',
+        'master' => 'Article',
         'user_permission' => 'User permission',
         'setting' => 'Setting',
     ],

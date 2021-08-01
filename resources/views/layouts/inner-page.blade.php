@@ -1,16 +1,3 @@
-<!--
-=========================================================
-Material Kit - v2.0.7
-=========================================================
-
-Product Page: https://www.creative-tim.com/product/material-kit
-Copyright 2020 Creative Tim (https://www.creative-tim.com/)
-
-Coded by Creative Tim
-
-=========================================================
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -39,8 +26,9 @@ The above copyright notice and this permission notice shall be included in all c
 
 <body class="profile-page sidebar-collapse">
     @include('layouts.pages.navbar')
-    <div class="page-header header-filter" data-parallax="true"
-        style="background-image: url('../assets/img/city-profile.jpg');"></div>
+    <div class="page-header header-filter clear-filter purple-filter" data-parallax="true"
+        style="background-image: url('{{ asset('./assets/img/bg2.jpg') }}');">
+    </div>
     <div class="main main-raised">
         <div class="container">
             <div class="section text-center">

@@ -13,15 +13,19 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <div class="row">
+                    <div class="card-header card-header-primary">
+                        {{ Breadcrumbs::render('users') }}
+                    </div>
+                    <div class="row pt-5">
                         <div class="col-md-6">
                             <form action="" method="GET">
                                 <div class="input-group">
                                     <input name="keyword" value="{{ request()->get('keyword') }}" type="search"
                                         class="form-control" placeholder="">
                                     <div class="input-group-append">
-                                        <button class="btn btn-primary" type="submit">
-                                            <i class="fas fa-search"></i>
+                                        <button class="btn btn-primary btn-round btn-just-icon" type="submit">
+                                            <i class="material-icons">search</i>
+                                            <div class="ripple-container"></div>
                                         </button>
                                     </div>
                                 </div>

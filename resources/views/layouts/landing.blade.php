@@ -29,10 +29,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h1 class="title">Your Story Starts With Us.</h1>
-                    <h4>Every landing page needs a small description after the big bold title, that&apos;s why we added
-                        this text here. Add here all the information that can make you or your product create the first
-                        impression.</h4>
+                    <h1 class="title">Test Kecerdasan Majemuk</h1>
+                    <h4>Test ini berguna untuk mengetahui tingkat kecerdasan yang dimiliki </h4>
                     <br>
                     <a data-toggle="modal" data-target="#guideline" class="btn btn-primary btn-round">
                         TEST KECERDASAN
@@ -99,9 +97,7 @@
 
     <div class="main main-raised">
         <div class="container">
-
             <div class="section text-center">
-                <h2 class="title">{{ trans('homepage.title.home') }}</h2>
                 @yield('content')
             </div>
         </div>

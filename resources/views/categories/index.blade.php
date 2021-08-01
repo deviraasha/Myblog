@@ -14,7 +14,10 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <div class="row">
+                    <div class="card-header card-header-primary">
+                        {{ Breadcrumbs::render('categories') }}
+                    </div>
+                    <div class="row pt-5">
                         <div class="col-md-6">
                             {{-- form search --}}
                             <form action="" method="GET">
@@ -23,8 +26,9 @@
                                         value="{{ request()->get('keyword') }}"
                                         placeholder="{{ trans('categories.form_control.input.search.placeholder') }}">
                                     <div class="input-group-append">
-                                        <button class="btn btn-primary" type="submit">
-                                            <i class="fas fa-search"></i>
+                                        <button class="btn btn-primary btn-round btn-just-icon" type="submit">
+                                            <i class="material-icons">search</i>
+                                            <div class="ripple-container"></div>
                                         </button>
                                     </div>
                                 </div>
@@ -65,14 +69,16 @@
                     </ul>
                 </div>
                 @if ($categories->hasPages())
-                    <div class="card-footer">
-                        {{ $categories->links('vendor.pagination.bootstrap-4') }}
+                    <div class="row pt-5">
+                        <div class="col pagination pagination-primary justify-content-center">
+                            {{ $categories->links('vendor.pagination.bootstrap-4') }}
+                        </div>
                     </div>
                 @endif
             </div>
         </div>
     </div>
-
+    </div>
 @endsection
 
 @push('javascript-internal')

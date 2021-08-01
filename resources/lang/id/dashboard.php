@@ -5,12 +5,13 @@ language : English
 return [
     'title' => [
         'index' => "Dashbor",
+        'histori' => "Riwayat Test Kecerdasan"
     ],
     'greeting' => [
         'welcome' => "Selamat datang :name"
     ],
     'menu' => [
-        'master' => 'Master',
+        'master' => 'Artikel',
         'user_permission' => 'Izin pengguna',
         'setting' => 'Pengaturan',
     ],

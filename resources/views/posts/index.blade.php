@@ -13,13 +13,16 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <div class="row">
-                        <div class="col-md-6">
+                    <div class="card-header card-header-primary">
+                        {{ Breadcrumbs::render('posts') }}
+                    </div>
+                    <div class="row pt-5">
+                        <div class="col-md-7">
                             <form action="" method="GET" class="form-inline form-row">
                                 <div class="col">
-                                    <div class="input-group mx-1">
+                                    <div class="input-group">
                                         <label
-                                            class="font-weight-bold mr-2">{{ trans('posts.form_control.select.status.label') }}</label>
+                                            class="font-weight-bold mr-1">{{ trans('posts.form_control.select.status.label') }}</label>
                                         <select name="status" class="custom-select">
                                             @foreach ($statuses as $value => $label)
                                                 <option value="{{ $value }}"
@@ -41,15 +44,16 @@
                                             class="form-control"
                                             placeholder="{{ trans('posts.form_control.input.search.placeholder') }}">
                                         <div class="input-group-append">
-                                            <button class="btn btn-primary" type="submit">
-                                                <i class="fas fa-search"></i>
+                                            <button type="submit" class="btn btn-primary btn-round btn-just-icon">
+                                                <i class="material-icons">search</i>
+                                                <div class="ripple-container"></div>
                                             </button>
                                         </div>
                                     </div>
                                 </div>
                             </form>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                             {{-- post --}}
                             @can('post_create')
                                 <a href="{{ route('posts.create') }}" class="btn btn-primary float-right" role="button">

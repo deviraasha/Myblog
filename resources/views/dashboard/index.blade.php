@@ -1,9 +1,5 @@
 @extends('layouts.dashboard')
 
-@section('title')
-    {{ trans('dashboard.title.index') }}
-@endsection
-
 @section('breadcrumbs')
     {{ Breadcrumbs::render('dashboard_home') }}
 @endsection
@@ -23,19 +19,13 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <form action="" method="GET">
-                                <div class="input-group">
-                                    <input name="search" type="search" class="form-control" placeholder="search name">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" type="submit">
-                                            <i class="fas fa-search"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                    <div class="card-header card-header-primary">
+                        {{ Breadcrumbs::render('dashboard_home') }}
+                        <h3>
+                            {{ trans('dashboard.title.histori') }}
+
+                        </h3>
+                        <p>{{ trans('dashboard.greeting.welcome', ['name' => Auth::user()->name]) }}</p>
                     </div>
                 </div>
                 <div class="card-body">
@@ -77,32 +67,47 @@
                                 </div>
                             </div>
                         @endforeach
+<<<<<<< HEAD
                     </div>
                 </div>
             </div>
         </div>
     </div>
+=======
+>>>>>>> 8b17d127c11bcd6ea2606932b6d1ee4627594ba5
 
-    @foreach ($data as $key => $value)
-        <!-- Modal -->
-        <div class="modal fade bd-example-modal-lg" id="idbio{{ $value->id }}" tabindex="-1" role="dialog"
-            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">{{ $value->name . ' Details ' }}</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        @foreach ($value->result as $ks => $item)
-                            <div>
-                                <span> {{ $ks + 1 . '. ' . $item->category->name_category . ' : ' }} </span>
-                                <b>{{ $item->result }}</b>
+                        @foreach ($data as $key => $value)
+                            <!-- Modal -->
+                            <div class="modal fade bd-example-modal-lg" id="idbio{{ $value->id }}" tabindex="-1"
+                                role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">
+                                                {{ $value->name . ' Details ' }}</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            @foreach ($value->result as $ks => $item)
+                                                <div>
+                                                    <span> {{ $ks + 1 . '. ' . $item->category->name_category . ' : ' }}
+                                                    </span>
+                                                    <b>{{ $item->result }}</b>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         @endforeach
                     </div>
+<<<<<<< HEAD
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
@@ -140,3 +145,14 @@
         });
     </script>
 @endpush
+=======
+                    @if ($data->hasPages())
+                        <div class="row pt-5">
+                            <div class="col pagination pagination-primary justify-content-center">
+                                {{ $data->links('vendor.pagination.bootstrap-4') }}
+                            </div>
+                        </div>
+                    @endif
+                </div>
+            @endsection
+>>>>>>> 8b17d127c11bcd6ea2606932b6d1ee4627594ba5

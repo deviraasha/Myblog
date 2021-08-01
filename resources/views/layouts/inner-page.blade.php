@@ -26,8 +26,9 @@
 
 <body class="profile-page sidebar-collapse">
     @include('layouts.pages.navbar')
-    <div class="page-header header-filter" data-parallax="true"
-        style="background-image: url('../assets/img/city-profile.jpg');"></div>
+    <div class="page-header header-filter clear-filter purple-filter" data-parallax="true"
+        style="background-image: url('{{ asset('./assets/img/bg2.jpg') }}');">
+    </div>
     <div class="main main-raised">
         <div class="container">
             <div class="section text-center">

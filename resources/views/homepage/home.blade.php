@@ -93,8 +93,8 @@
                     <a href="{{ route('homepage.tags') }}">{{ trans('homepage.widget.tags') }}</a>
 
                 </h5>
-                <div class="content pt-5">
-                    <div class="pt-4 pt-lg-0">
+                <div class="content">
+                    <div class="pt-lg-0">
                         @forelse ($tags as $tag)
                             <!-- true -->
                             <a href="{{ route('homepage.posts.tag', ['slug' => $tag->slug]) }}"

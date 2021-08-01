@@ -9,18 +9,15 @@
 @endsection
 
 @section('content')
-    <!-- Title:start -->
-    <h2 class="mt-4 mb-3 justify-content-lg-between">
-        {{ $post->title }}
-    </h2>
-    <!-- Title:end -->
-
     <!-- Breadcrumb:Start -->
     {{ Breadcrumbs::render('homepage_post', $post->title) }}
     <!-- Breadcrumb:end -->
     <div class="row">
         <!-- Post Content Column:start -->
         <div class="col-lg-8">
+            <h1>
+                {{ $post->title }}
+            </h1>
             <!-- thumbnail:start -->
             @if (file_exists(public_path($post->thumbnail)))
                 <!-- true -->
@@ -33,6 +30,7 @@
             <hr>
             <!-- Post Content:start -->
             <div>
+
                 {!! $post->content !!}
             </div>
             <!-- Post Content:end -->
@@ -49,10 +47,12 @@
                 <div class="card-body">
                     <!-- category list:start -->
                     @foreach ($post->categories as $category)
-                        <a href="{{ route('homepage.post-category', ['slug' => $category->slug]) }}"
-                            class="badge badge-primary py-2 px-4">
-                            {{ $category->title }}
-                        </a>
+                        <div class="pt-2">
+                            <a href="{{ route('homepage.post-category', ['slug' => $category->slug]) }}"
+                                class="badge badge-primary py-2 px-4 pt-2">
+                                {{ $category->title }}
+                            </a>
+                        </div>
                     @endforeach
 
 
@@ -61,7 +61,7 @@
             </div>
 
             <!-- Side Widget tags:start -->
-            <div class="card mb-3">
+            <div class="card mb-3 pt-3">
                 <h5 class="card-header">
                     {{ trans('homepage.widget.tags') }}
                 </h5>

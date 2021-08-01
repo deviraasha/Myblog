@@ -5,6 +5,7 @@ language : English
 return [
     'title' => [
         'index' => "Dashboard",
+        'histori' => "History of Intelligence Test"
     ],
     'greeting' => [
         'welcome' => "Welcome :name"

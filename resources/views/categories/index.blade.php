@@ -69,14 +69,16 @@
                     </ul>
                 </div>
                 @if ($categories->hasPages())
-                    <div class="card-footer">
-                        {{ $categories->links('vendor.pagination.bootstrap-4') }}
+                    <div class="row pt-5">
+                        <div class="col pagination pagination-primary justify-content-center">
+                            {{ $categories->links('vendor.pagination.bootstrap-4') }}
+                        </div>
                     </div>
                 @endif
             </div>
         </div>
     </div>
-
+    </div>
 @endsection
 
 @push('javascript-internal')

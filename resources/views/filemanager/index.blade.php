@@ -1,4 +1,4 @@
-@extends('dashboard.index')
+@extends('layouts.dashboard')
 
 @section('title')
     {{ trans('filemanager.title.index') }}

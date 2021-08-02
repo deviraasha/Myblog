@@ -1,5 +1,4 @@
 @extends('layouts.dashboard')
-
 @section('breadcrumbs')
     {{ Breadcrumbs::render('dashboard_home') }}
 @endsection
@@ -13,7 +12,6 @@
         </div>
     </div>
 @endsection --}}
-
 @section('content')
     <div class="row">
         <div class="col-md-12">
@@ -102,10 +100,7 @@
             </div>
         </div>
     @endforeach
-
 @endsection
-
-
 
 @push('javascript-internal')
     <script>

@@ -39,6 +39,17 @@
                                                 name="v{{ $key + 1 }}" id="{{ $key + 1 }}" required>
                                                 @if ($value->$a)
                                                     <option value="{{ $value->$a }}">{{ $value->$a }}</option>
+                                                    <option value="0">0</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                    <option value="9">9</option>
+                                                    <option value="10">10</option>
                                                 @else
                                                     <option value="">Select</option>
                                                     <option value="0">0</option>
@@ -79,16 +90,28 @@
                             @if ($data->currentPage() == $data->total())
                                 <button class="btn btn-primary btn-round" type="submit">Finish</button>
                             @endif
-                        </div>
-                        <div class="col-12 text-left">
-                            <span>
-                                {{ 'Page ' . $data->currentPage() . ' of ' . $data->total() }}
-                            </span>
-                        </div>
-                    </div>
                 </form>
 
-                {{-- @if ($data->currentPage() == $data->total())
+                @if ($data->currentPage() == 1)
+                    <a href="/testing-destroys" class="btn btn-danger btn-round float-left">
+                        Cancel
+                    </a>
+                @else
+                    <a href="/testing-fuzzy?page={{ $data->currentPage() - 1 }}"
+                        class="btn btn-default btn-round float-left">
+                        Back
+                    </a>
+                @endif
+            </div>
+            <div class="col-12 text-left">
+                <span>
+                    {{ 'Page ' . $data->currentPage() . ' of ' . $data->total() }}
+                </span>
+
+            </div>
+        </div>
+
+        {{-- @if ($data->currentPage() == $data->total())
                     <div class="row">
                         <div class="col-12 text-right">
                             <a href="/result">
@@ -100,7 +123,7 @@
                     </div>
                 @endif --}}
 
-            </div>
-        </div>
+    </div>
+    </div>
     </div>
 @endsection

@@ -70,7 +70,7 @@ class BiodataController extends Controller
 
         Biodata::where('id', $idBio)->delete();
         Result::where('biodata_id', $idBio)->delete();
-
+        setcookie('biodata_id', '');
         return redirect('/');
 
     }

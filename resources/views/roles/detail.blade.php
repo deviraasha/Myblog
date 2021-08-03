@@ -36,11 +36,14 @@
                                         <!-- list permission:start -->
                                         <li class="list-group-item">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    onclick="return false;"
-                                                    {{ in_array($permission, $rolePermissions) ? 'checked' : null }}>
                                                 <label class="form-check-label">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                        onclick="return false;"
+                                                        {{ in_array($permission, $rolePermissions) ? 'checked' : null }}>
+
                                                     {{ trans("permissions.{$permission}") }}
+                                                    <span class="form-check-sign">
+                                                        <span class="check"></span>
                                                 </label>
                                             </div>
                                         </li>

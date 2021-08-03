@@ -48,7 +48,7 @@
                                             </li>
                                             <!-- list permission:start -->
                                             @foreach ($permissions as $permission)
-                                                <li class="list-group-item">
+                                                {{-- <li class="list-group-item">
                                                     <div class="form-check">
                                                         @if (old('permissions'))
                                                             <input id="{{ $permission }}" name="permissions[]"
@@ -60,9 +60,29 @@
                                                                 class="form-check-input" type="checkbox"
                                                                 value="{{ $permission }}">
                                                         @endif
-
                                                         <label for="{{ $permission }}" class="form-check-label">
                                                             {{ trans("permissions.{$permission}") }}
+                                                        </label>
+                                                    </div>
+                                                </li> --}}
+
+                                                <li class="list-group-item">
+                                                    <div class="form-check">
+                                                        <label for="{{ $permission }}" class="form-check-label">
+                                                            @if (old('permissions'))
+                                                                <input id="{{ $permission }}" name="permissions[]"
+                                                                    class="form-check-input" type="checkbox"
+                                                                    value="{{ $permission }}"
+                                                                    {{ in_array($permission, old('permissions')) ? 'checked' : null }}>
+                                                            @else
+                                                                <input id="{{ $permission }}" name="permissions[]"
+                                                                    class="form-check-input" type="checkbox"
+                                                                    value="{{ $permission }}">
+                                                            @endif
+                                                            {{ trans("permissions.{$permission}") }}
+                                                            <span class="form-check-sign">
+                                                                <span class="check"></span>
+                                                            </span>
                                                         </label>
                                                     </div>
                                                 </li>

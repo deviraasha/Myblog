@@ -15,7 +15,7 @@ class Result extends Model
     public $incrementing = false;
     public $keyType = 'int';
     public $timestamps = false;
-    protected $fillable = ['id', 'biodata_id', 'category_input_id', 'v1', 'v2', 'v3', 'v4', 'v5', 'max_linear', 'rule', 'result'];
+    protected $fillable = ['id', 'biodata_id', 'category_input_id', 'v1', 'v2', 'v3', 'v4', 'v5', 'max_linear', 'rule', 'result', 'score'];
 
     public function biodata()
     {

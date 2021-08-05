@@ -34,6 +34,7 @@ Route::get('/result-destroy', [ResultController::class, 'destroy']);
 Route::get('/result', [ResultController::class, 'index']);
 Route::post('/checking', [VariableInputController::class, 'checking']);
 Route::get('/testing-fuzzy', [VariableInputController::class, 'index']);
+Route::get('/testing-destroys', [BiodataController::class, 'destroys']);
 Route::post('/create-bio', [BiodataController::class, 'create']);
 Route::get('/biodata', [BiodataController::class, 'index']);
 //End Fuzzy

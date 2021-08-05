@@ -58,5 +58,21 @@ class BiodataController extends Controller
         return redirect()->back();
 
     }
+    public function destroys()
+    {
+        //find biodata
+        try {
+            $cacheBio = $_COOKIE['biodata_id'];
+        } catch (\Throwable $th) {
+            return redirect('/biodata');
+        }
+        $idBio = decrypt($cacheBio);
+
+        Biodata::where('id', $idBio)->delete();
+        Result::where('biodata_id', $idBio)->delete();
+        setcookie('biodata_id', '');
+        return redirect('/');
+
+    }
 
 }

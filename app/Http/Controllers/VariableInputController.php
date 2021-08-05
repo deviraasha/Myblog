@@ -97,7 +97,6 @@ class VariableInputController extends Controller
         //--------------------------------------------------------------------------------------------------------
         // dd($min);
         // dd($this->integralM(10, 20, 0.5));
-<<<<<<< HEAD
         // $cA = false;
         // $cB = false;
         // $cC = false;
@@ -116,25 +115,6 @@ class VariableInputController extends Controller
         //         $cC = true;
         //     }
         // }
-=======
-        $cA = false;
-        $cB = false;
-        $cC = false;
-        foreach ($min as $val) {
-            if ($val["aturan"] == "kurang cerdas") {
-                // dd("kurang");
-                $cA = true;
-            }
-            if ($val["aturan"] == "cukup cerdas") {
-                // dd("cukup");
-                $cB = true;
-            }
-            if ($val["aturan"] == "sangat cerdas") {
-                // dd("sangat");
-                $cC = true;
-            }
-        }
->>>>>>> 8b17d127c11bcd6ea2606932b6d1ee4627594ba5
 
         // //perhitungan kurang cerdas
         // if ($cA) {
@@ -214,12 +194,8 @@ class VariableInputController extends Controller
         }
         // dd($ResultAkhir);
         Result::where('biodata_id', $idBio)->where('category_input_id', $request->category_input_id)
-<<<<<<< HEAD
-            ->update(['rule' => $dataRule,
-=======
             ->update([
                 'rule' => $dataRule,
->>>>>>> 8b17d127c11bcd6ea2606932b6d1ee4627594ba5
                 'v1' => $request->v1,
                 'v2' => $request->v2,
                 'v3' => $request->v3,

@@ -561,15 +561,15 @@ class VariableInputController extends Controller
         }
 
         //cukup cerdas
-        if ($x <= 50) {
-            $result = ($x - 10) / 40;
-            // dd($result);
-            if ($result > 0.0) {
-                $data = "cukup cerdas";
-            }
-        }
+        // if ($x <= 50) {
+        //     $result = ($x - 10) / 40;
+        //     // dd($result);
+        //     if ($result > 0.0) {
+        //         $data = "cukup cerdas";
+        //     }
+        // }
         //cukup cerdas
-        if ($x >= 50 && $x <= 90) {
+        if ($x > 40 && $x <= 60) {
             $result = (90 - $x) / 40;
             if ($result > 0.0) {
                 $data = "cukup cerdas";
@@ -577,7 +577,7 @@ class VariableInputController extends Controller
         }
 
         //tinggi
-        if ($x > 50 && $x <= 100 || $x > 100) {
+        if ($x > 60 && $x <= 100) {
             $result = ($x - 60) / 40;
             if ($result > 0.0) {
                 $data = "sangat cerdas";

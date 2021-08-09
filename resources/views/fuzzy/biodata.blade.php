@@ -14,8 +14,7 @@
             <div class="section">
                 <div class="row">
                     <div class="col-md col-sm-12 text-center">
-                        <img src="https://images-platform.99static.com/AKiJ0kIzDQuCf-TkrEOJUYvhJvk=/170x203:788x821/500x500/top/smart/99designs-contests-attachments/86/86859/attachment_86859730"
-                            width="60%" alt="">
+                        <img src="{{ asset('assets/img/a1.png') }}" width="70%" alt="">
                     </div>
                     <div class="col col-md col-sm">
                         <form action="/create-bio" method="POST">

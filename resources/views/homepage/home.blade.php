@@ -17,18 +17,18 @@
                                 <!-- thumbnail:start -->
                                 @if (file_exists(public_path($post->thumbnail)))
                                     <!-- true -->
-                                    <img class="card-img-top" src="{{ asset($post->thumbnail) }}"
+                                    <img class="card-img-top" height="200" src="{{ asset($post->thumbnail) }}"
                                         alt="{{ $post->title }}">
                                 @else
                                     <!-- else -->
-                                    <img class="img-fluid rounded" src="http://placehold.it/750x300"
+                                    <img class="img-fluid rounded" height="200" src="http://placehold.it/750x300"
                                         alt="{{ $post->title }}">
                                 @endif
                                 <!-- thumbnail:end -->
                             </div>
                             <div class="col-lg-6">
-                                <h2 class="card-title">{{ $post->title }}</h2>
-                                <p class="card-text">{{ $post->description }}</p>
+                                <h2 class="card-title text-center">{{ $post->title }}</h2>
+                                <p class="card-text justify-content-between">{{ $post->description }}</p>
                                 <a href="{{ route('homepage.posts.detail', ['slug' => $post->slug]) }}"
                                     class="btn btn-primary">
                                     {{ trans('homepage.button.read_more.value') }}
@@ -59,29 +59,25 @@
                         {{ trans('homepage.no_data.posts') }}
                     </h3>
                 @endforelse
-
             </div>
             <!-- Categories list:end -->
             <div class="sharing-area text-center">
                 <div class="row justify-content-center">
                     <h3>Follow us on social media!</h3>
                 </div>
-                <a id="twitter" class="btn btn-raised btn-twitter" href="https://twitter.com/CreativeTim" rel="nofollow">
+                <a id="twitter" class="btn btn-raised btn-twitter" href="#" rel="nofollow">
                     <i class="fa fa-twitter"></i>
                     Tweet
                 </a>
-                <a id="facebook" class="btn btn-raised btn-facebook" href="https://www.facebook.com/CreativeTim"
-                    rel="nofollow">
+                <a id="facebook" class="btn btn-raised btn-facebook" href="#" rel="nofollow">
                     <i class="fa fa-facebook-square"></i>
                     Facebook
                 </a>
-                <a id="instagram" class="btn btn-raised btn-instagram" href="https://www.instagram.com/CreativeTimOfficial"
-                    rel="nofollow">
+                <a id="instagram" class="btn btn-raised btn-instagram" href="#" rel="nofollow">
                     <i class="fa fa-instagram"></i>
                     Instagram
                 </a>
-                <a id="github" href="https://github.com/creativetimofficial/material-kit" target="_blank"
-                    class="btn btn-raised btn-github" rel="nofollow">
+                <a id="github" href="#" target="_blank" class="btn btn-raised btn-github" rel="nofollow">
                     <i class="fa fa-github"></i>
                     Star
                 </a>
@@ -94,18 +90,21 @@
 
                 </h5>
                 <div class="content">
-                    <div class="pt-lg-0">
-                        @forelse ($tags as $tag)
-                            <!-- true -->
-                            <a href="{{ route('homepage.posts.tag', ['slug' => $tag->slug]) }}"
-                                class="btn btn-outline-primary ml-auto">{{ $tag->title }}</a>
-                        @empty
-                            <!-- false -->
-                            <h3 class="text-center">
-                                {{ trans('homepage.no_data.tags') }}
-                            </h3>
-                        @endforelse
+                    <div class="row">
+                        <div class="pt-lg-0 ml-5 mr-3">
+                            @forelse ($tags as $tag)
+                                <!-- true -->
+                                <a href="{{ route('homepage.posts.tag', ['slug' => $tag->slug]) }}"
+                                    class="btn btn-outline-primary ml-auto">{{ $tag->title }}</a>
+                            @empty
+                                <!-- false -->
+                                <h3 class="text-center">
+                                    {{ trans('homepage.no_data.tags') }}
+                                </h3>
+                            @endforelse
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>

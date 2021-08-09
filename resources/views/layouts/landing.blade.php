@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('../assets/img/apple-icon.png') }}">
-    <link rel="icon" type="image/png" href="{{ asset('../assets/img/2.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('assets/img/logo1.png') }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
         {{ config('app.name') }} - @yield('title')
@@ -32,7 +32,7 @@
                     <h1 class="title">Test Kecerdasan Majemuk</h1>
                     <h4>Test ini berguna untuk mengetahui tingkat kecerdasan yang dimiliki </h4>
                     <br>
-                    <a data-toggle="modal" data-target="#guideline" class="btn btn-primary btn-round">
+                    <a data-toggle="modal" data-target="#guideline" class="btn pp btn-primary btn-round">
                         TEST KECERDASAN
                     </a>
                 </div>
@@ -46,7 +46,7 @@
             <div class="modal-content">
                 <div class="card card-signup card-plain">
                     <div class="modal-header">
-                        <h5 class="modal-title card-title">Guideline Fuzzy</h5>
+                        <h5 class="modal-title card-title">Instruksi Pengerjaan Test Kecerdasan Majemuk</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <i class="material-icons">clear</i>
                         </button>
@@ -57,16 +57,24 @@
                                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                                 <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
                             </ol>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img class="d-block w-100" src="../../../assets/img/bg2.jpg" alt="First slide">
+                                    <img class="d-block w-100" src="{{ asset('assets/img/09.jpg') }}" height="350"
+                                        alt="First slide">
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="d-block w-100" src="../../../assets/img/bg3.jpg" alt="Second slide">
+                                    <img class="d-block w-100" src="{{ asset('assets/img/02.jpg') }}" height="350"
+                                        alt="Second slide">
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="d-block w-100" src="../../../assets/img/bg.jpg" alt="Third slide">
+                                    <img class="d-block w-100" src="{{ asset('assets/img/07.jpg') }}" height="350"
+                                        alt="Third slide">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="{{ asset('assets/img/08.jpg') }}" height="350"
+                                        alt="Fourth slide">
                                 </div>
                             </div>
                             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
@@ -97,7 +105,7 @@
 
     <div class="main main-raised">
         <div class="container">
-            <div class="section text-center">
+            <div class="section">
                 @yield('content')
             </div>
         </div>

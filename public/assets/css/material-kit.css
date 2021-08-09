@@ -3606,7 +3606,7 @@ fieldset:disabled a.btn {
 }
 @media (min-width: 500px) {
     .content {
-        width: 43%;
+        width: 100%;
     }
     #button {
         margin: 30px;
@@ -9650,7 +9650,6 @@ button:focus {
 
 .btn {
     position: relative;
-    padding: 12px 30px;
     margin: 0.3125rem 1px;
     font-size: 0.75rem;
     font-weight: 400;
@@ -9668,6 +9667,9 @@ button:focus {
     will-change: box-shadow, transform;
 }
 
+.btn.pp {
+    padding: 12px 30px;
+}
 .btn:focus,
 .btn.focus,
 .btn:active:focus,

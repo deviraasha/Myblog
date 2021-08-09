@@ -1,23 +1,15 @@
-<footer class="footer footer-default">
-    <div class="container">
-        <nav class="float-left">
-            <ul>
-                <li>
-                    <a href="https://www.creative-tim.com/">
-                        Creative Tim
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <div class="copyright float-right">
+<!-- ======= Footer ======= -->
+<footer id="footer">
+    <div class="container footer-bottom clearfix">
+        <div class="copyright">
             &copy;
             <script>
                 document.write(new Date().getFullYear())
-            </script>, made with <i class="material-icons">favorite</i> by
-            <a href="https://www.creative-tim.com/" target="blank">Creative Tim</a> for a better web.
+            </script> KecerdasanMajemuk -
+            <a href="#" target="_blank">All Rights Reserved</a>
         </div>
     </div>
-</footer>
+</footer><!-- End Footer -->
 <!--   Core JS Files   -->
 <script src="{{ asset('../assets/js/core/jquery.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('../assets/js/core/popper.min.js') }}" type="text/javascript"></script>

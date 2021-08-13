@@ -3,7 +3,7 @@
 @section('body')
     <div class="main main-raised">
         <div class="container">
-            <div class="p-3">
+            <div class="p-3 justify-content-center">
                 <b style="font-size: 1.125rem; ">Hasil Test Kecerdasan {{ $data['0']['biodata']['name'] }}
                 </b>
             </div>

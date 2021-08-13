@@ -30,7 +30,7 @@
                                 <h2 class="card-title text-center">{{ $post->title }}</h2>
                                 <p class="card-text justify-content-between">{{ $post->description }}</p>
                                 <a href="{{ route('homepage.posts.detail', ['slug' => $post->slug]) }}"
-                                    class="btn btn-primary">
+                                    class="btn pp btn-primary">
                                     {{ trans('homepage.button.read_more.value') }}
                                 </a>
                             </div>

@@ -30,7 +30,8 @@
             <div class="row">
                 <div class="col-md-6">
                     <h1 class="title">Test Kecerdasan Majemuk</h1>
-                    <h4>Test ini berguna untuk mengetahui tingkat kecerdasan yang dimiliki </h4>
+                    <h4>Test ini berguna untuk mengetahui tingkat kecerdasan dari 9 kategori kecerdasan majemuk
+                    </h4>
                     <br>
                     <a data-toggle="modal" data-target="#guideline" class="btn pp btn-primary btn-round">
                         TEST KECERDASAN
@@ -61,7 +62,7 @@
                             </ol>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img class="d-block w-100" src="{{ asset('assets/img/09.jpg') }}" height="350"
+                                    <img class="d-block w-100" src="{{ asset('assets/img/10.jpg') }}" height="350"
                                         alt="First slide">
                                 </div>
                                 <div class="carousel-item">
@@ -94,7 +95,7 @@
                             aria-label="Close">
                             Kembali
                         </button>
-                        <a href="/biodata" class=" btn btn-primary btn-link btn-wd btn-lg">Lanjutkan</a>
+                        <a href="/biodata" class=" btn btn-primary btn-link btn-wd btn-lg">Mulai Test</a>
                     </div>
                 </div>
             </div>

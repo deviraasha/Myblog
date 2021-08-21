@@ -14,6 +14,5 @@ class Rule extends Model
     protected $primaryKey = 'id';
     public $incrementing = false;
     public $keyType = 'int';
-    protected $fillable = ['id', 'v1', 'v2', 'v3', 'v4', 'v5', 'then'];
-
+    protected $fillable = ['id', 'v1', 'v2', 'v3', 'v4', 'v5', 'then', 'score'];
 }

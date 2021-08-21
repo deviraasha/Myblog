@@ -101,15 +101,15 @@ class VariableInputController extends Controller
         $cB = false;
         $cC = false;
         foreach ($min as $val) {
-            if ($val["aturan"] == "kurang cerdas") {
+            if ($val["aturan"] == "Kurang cerdas") {
                 // dd("kurang");
                 $cA = true;
             }
-            if ($val["aturan"] == "cukup cerdas") {
+            if ($val["aturan"] == "Cukup cerdas") {
                 // dd("cukup");
                 $cB = true;
             }
-            if ($val["aturan"] == "sangat cerdas") {
+            if ($val["aturan"] == "Sangat cerdas") {
                 // dd("sangat");
                 $cC = true;
             }
@@ -119,8 +119,8 @@ class VariableInputController extends Controller
         if ($cA) {
             if ($cA && $cB) {
                 // dd("kurang & cukup cerdas **");
-                $dMaxC = $this->cMinMax($min, "max", "kurang cerdas");
-                $dMaxS = $this->cMinMax($min, "max", "cukup cerdas");
+                $dMaxC = $this->cMinMax($min, "max", "Kurang cerdas");
+                $dMaxS = $this->cMinMax($min, "max", "Cukup cerdas");
                 $dMax = max($dMaxC, $dMaxS);
                 $dMin = min($dMaxC, $dMaxS);
                 $t1 = $this->cT(40, "x", 40, $dMax);
@@ -144,8 +144,8 @@ class VariableInputController extends Controller
             } elseif ($cA && $cC) {
                 // dd("kurang & sangat cerdas **");
                 // dd($min);
-                $dMaxC = $this->cMinMax($min, "max", "kurang cerdas");
-                $dMaxS = $this->cMinMax($min, "max", "sangat cerdas");
+                $dMaxC = $this->cMinMax($min, "max", "Kurang cerdas");
+                $dMaxS = $this->cMinMax($min, "max", "Sangat cerdas");
                 $dMax = max($dMaxC, $dMaxS);
                 $dMin = min($dMaxC, $dMaxS);
                 $t1 = $this->cT(40, "x", 40, $dMax);
@@ -192,8 +192,8 @@ class VariableInputController extends Controller
         if ($cB) {
             if ($cB && $cA) {
                 // dd("cukup & kurang **");
-                $dMaxC = $this->cMinMax($min, "max", "kurang cerdas");
-                $dMaxS = $this->cMinMax($min, "max", "cukup cerdas");
+                $dMaxC = $this->cMinMax($min, "max", "Kurang cerdas");
+                $dMaxS = $this->cMinMax($min, "max", "Cukup cerdas");
                 $dMax = max($dMaxC, $dMaxS);
                 $dMin = min($dMaxC, $dMaxS);
                 $t1 = $this->cT(40, "x", 40, $dMax);
@@ -217,8 +217,8 @@ class VariableInputController extends Controller
             } elseif ($cB && $cC) {
                 // dd("cukup & sangat cerdas **");
                 // dd($min);
-                $dMaxC = $this->cMinMax($min, "max", "cukup cerdas");
-                $dMaxS = $this->cMinMax($min, "max", "sangat cerdas");
+                $dMaxC = $this->cMinMax($min, "max", "Cukup cerdas");
+                $dMaxS = $this->cMinMax($min, "max", "Sangat cerdas");
                 $dMax = max($dMaxC, $dMaxS);
                 $dMin = min($dMaxC, $dMaxS);
                 $t1 = $this->cT('x', 10, 40, $dMax);
@@ -275,8 +275,8 @@ class VariableInputController extends Controller
         if ($cC) {
             if ($cC && $cA) {
                 // dd("sangat & kurang cerdas **");
-                $dMaxC = $this->cMinMax($min, "max", "kurang cerdas");
-                $dMaxS = $this->cMinMax($min, "max", "sangat cerdas");
+                $dMaxC = $this->cMinMax($min, "max", "Kurang cerdas");
+                $dMaxS = $this->cMinMax($min, "max", "Sangat cerdas");
                 $dMax = max($dMaxC, $dMaxS);
                 $dMin = min($dMaxC, $dMaxS);
                 $t1 = $this->cT(40, "x", 40, $dMax);
@@ -295,8 +295,8 @@ class VariableInputController extends Controller
                 // dd($score);
             } elseif ($cC && $cB) {
                 // dd("sangat & cukup cerdas **");
-                $dMaxC = $this->cMinMax($min, "max", "cukup cerdas");
-                $dMaxS = $this->cMinMax($min, "max", "sangat cerdas");
+                $dMaxC = $this->cMinMax($min, "max", "Cukup cerdas");
+                $dMaxS = $this->cMinMax($min, "max", "Sangat cerdas");
                 $dMax = max($dMaxC, $dMaxS);
                 $dMin = min($dMaxC, $dMaxS);
                 $t1 = $this->cT('x', 10, 40, $dMax);
@@ -556,7 +556,7 @@ class VariableInputController extends Controller
             $result = (40 - $x) / 40;
             // dd($result);
             if ($result > 0.0) {
-                $data = "kurang cerdas";
+                $data = "Kurang cerdas";
             }
         }
 
@@ -572,7 +572,7 @@ class VariableInputController extends Controller
         if ($x > 40 && $x <= 60) {
             $result = (90 - $x) / 40;
             if ($result > 0.0) {
-                $data = "cukup cerdas";
+                $data = "Cukup cerdas";
             }
         }
 
@@ -580,7 +580,7 @@ class VariableInputController extends Controller
         if ($x > 60 && $x <= 100) {
             $result = ($x - 60) / 40;
             if ($result > 0.0) {
-                $data = "sangat cerdas";
+                $data = "Sangat cerdas";
             }
         }
 

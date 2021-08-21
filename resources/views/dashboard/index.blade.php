@@ -67,6 +67,13 @@
                         @endforeach
                     </div>
                 </div>
+                @if ($data->hasPages())
+                    <div class="row pt-5">
+                        <div class="col pagination pagination-primary justify-content-center">
+                            {{ $data->links('vendor.pagination.bootstrap-4') }}
+                        </div>
+                    </div>
+                @endif
             </div>
         </div>
     </div>
@@ -89,7 +96,10 @@
                             <div>
                                 <span> {{ $ks + 1 . '. ' . $item->category->name_category . ' : ' }}
                                 </span>
-                                <b>{{ $item->result }}</b>
+                                <ul>
+                                    <li><b>Hasil : {{ $item->result }}</b></li>
+                                    <li><b>Score : {{ $item->score }}</b></li>
+                                </ul>
                             </div>
                         @endforeach
                     </div>

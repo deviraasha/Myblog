@@ -91,7 +91,7 @@ class VariableInputController extends Controller
                 }
             }
         }
-        // dd(var_dump($min));
+        // dd($min);
         // $dataRules = json_encode($dataRule);
         // dd(var_dump($dataRule));
         //--------------------------------------------------------------------------------------------------------
@@ -217,30 +217,58 @@ class VariableInputController extends Controller
             } elseif ($cB && $cC) {
                 // dd("cukup & sangat cerdas **");
                 // dd($min);
+                // $dMaxC = $this->cMinMax($min, "max", "cukup cerdas");
+                // $dMaxS = $this->cMinMax($min, "max", "sangat cerdas");
+                // $dMax = max($dMaxC, $dMaxS);
+                // $dMin = min($dMaxC, $dMaxS);
+                // $t1 = $this->cT('x', 10, 40, $dMax);
+                // $t2 = $this->cT('90', "x", 40, $dMax);
+                // $t3 = $this->cT('90', "x", 40, $dMin);
+                // //menghitung M
+                // $m1 = abs(0.025 * ((1 / 3 * pow($t1, 3)) - (10 * (1 / 2) * pow($t1, 2)))) - abs(0.025 * ((1 / 3 * pow(10, 3)) - (10 * (1 / 2) * pow(10, 2))));
+                // $m2 = $this->integralM($t1, $t2, $dMax);
+                // $m3 = abs(0.025 * ((90 * (1 / 2) * pow($t3, 2)) - (1 / 3 * pow($t3, 3)))) - abs(0.025 * ((90 * (1 / 2) * pow($t2, 2)) - (1 / 3 * pow($t2, 3))));
+                // $m4 = $this->integralM($t3, 100, $dMin);
+                // $mtotal = abs($m1) + abs($m2) + abs($m3) + abs($m4);
+                // //menghitung A
+                // $a1 = $t1 * $dMax / 2;
+                // $a2 = $dMax * ($t2 - $t1);
+                // $a3 = ($dMax + $dMin) * ($t3 - $t2) / 2;
+                // $a4 = $dMin * (100 - $t3);
+                // //menghitung score
+                // $atotal = abs($a1) + abs($a2) + abs($a3) + abs($a4);
+                // $score = $mtotal / $atotal;
+                // $scoreName = $this->resultAkhir($score);
+
+                // dd($score);
+                //======================================================================================
+                // versi kakak
                 $dMaxC = $this->cMinMax($min, "max", "cukup cerdas");
                 $dMaxS = $this->cMinMax($min, "max", "sangat cerdas");
                 $dMax = max($dMaxC, $dMaxS);
                 $dMin = min($dMaxC, $dMaxS);
-                $t1 = $this->cT('x', 10, 40, $dMax);
-                $t2 = $this->cT('90', "x", 40, $dMax);
-                $t3 = $this->cT('90', "x", 40, $dMin);
+                $t1 = $this->cT('x', 10, 40, $dMin);
+                $t2 = $this->cT('90', "x", 40, $dMin);
+                $t3 = $this->cT('x', 60, 40, $dMax);
+                $t4 = $this->cT('x', 60, 40, $dMin);
+                // dd($t2);
                 //menghitung M
                 $m1 = abs(0.025 * ((1 / 3 * pow($t1, 3)) - (10 * (1 / 2) * pow($t1, 2)))) - abs(0.025 * ((1 / 3 * pow(10, 3)) - (10 * (1 / 2) * pow(10, 2))));
-                $m2 = $this->integralM($t1, $t2, $dMax);
-                $m3 = abs(0.025 * ((90 * (1 / 2) * pow($t3, 2)) - (1 / 3 * pow($t3, 3)))) - abs(0.025 * ((90 * (1 / 2) * pow($t2, 2)) - (1 / 3 * pow($t2, 3))));
-                $m4 = $this->integralM($t3, 100, $dMin);
+                $m2 = $this->integralM($t1, $t4, $dMin);
+                $m3 = abs(0.025 * ((1 / 3 * pow($t4, 3)) - (60 * (1 / 2) * pow($t4, 2)))) - abs(0.025 * ((1 / 3 * pow($t2, 3)) - (60 * (1 / 2) * pow($t2, 2))));
+                $m4 = $this->integralM($t3, 100, $dMax);
                 $mtotal = abs($m1) + abs($m2) + abs($m3) + abs($m4);
                 //menghitung A
-                $a1 = $t1 * $dMax / 2;
-                $a2 = $dMax * ($t2 - $t1);
-                $a3 = ($dMax + $dMin) * ($t3 - $t2) / 2;
-                // $a3 = (90 - $t2) * $dMax / 2;
-                $a4 = $dMin * (100 - $t3);
+                $a1 = $t1 * $dMin / 2;
+                $a2 = $dMin * ($t4 - $t1);
+                $a3 = ($dMin + $dMax) * 10 / 2;
+                $a4 = $dMax * (90 - $t4);
                 //menghitung score
                 $atotal = abs($a1) + abs($a2) + abs($a3) + abs($a4);
                 $score = $mtotal / $atotal;
                 $scoreName = $this->resultAkhir($score);
                 // dd($score);
+                //======================================================================================
             } else {
                 // dd($min);
                 // dd("cukup cerdas");
@@ -295,29 +323,56 @@ class VariableInputController extends Controller
                 // dd($score);
             } elseif ($cC && $cB) {
                 // dd("sangat & cukup cerdas **");
+                // $dMaxC = $this->cMinMax($min, "max", "cukup cerdas");
+                // $dMaxS = $this->cMinMax($min, "max", "sangat cerdas");
+                // $dMax = max($dMaxC, $dMaxS);
+                // $dMin = min($dMaxC, $dMaxS);
+                // $t1 = $this->cT('x', 10, 40, $dMax);
+                // $t2 = $this->cT('90', "x", 40, $dMax);
+                // $t3 = $this->cT('90', "x", 40, $dMin);
+                // //menghitung M
+                // $m1 = abs(0.025 * ((1 / 3 * pow($t1, 3)) - (10 * (1 / 2) * pow($t1, 2)))) - abs(0.025 * ((1 / 3 * pow(10, 3)) - (10 * (1 / 2) * pow(10, 2))));
+                // $m2 = $this->integralM($t1, $t2, $dMax);
+                // $m3 = abs(0.025 * ((90 * (1 / 2) * pow($t3, 2)) - (1 / 3 * pow($t3, 3)))) - abs(0.025 * ((90 * (1 / 2) * pow($t2, 2)) - (1 / 3 * pow($t2, 3))));
+                // $m4 = $this->integralM($t3, 100, $dMin);
+                // $mtotal = abs($m1) + abs($m2) + abs($m3) + abs($m4);
+                // //menghitung A
+                // $a1 = $t1 * $dMax / 2;
+                // $a2 = $dMax * ($t2 - $t1);
+                // $a3 = ($dMax + $dMin) * ($t3 - $t2) / 2;
+                // $a4 = $dMin * (100 - $t3);
+                // //menghitung score
+                // $atotal = abs($a1) + abs($a2) + abs($a3) + abs($a4);
+                // $score = $mtotal / $atotal;
+                // $scoreName = $this->resultAkhir($score);
+                //======================================================================================
+                // versi kakak
                 $dMaxC = $this->cMinMax($min, "max", "cukup cerdas");
                 $dMaxS = $this->cMinMax($min, "max", "sangat cerdas");
                 $dMax = max($dMaxC, $dMaxS);
                 $dMin = min($dMaxC, $dMaxS);
-                $t1 = $this->cT('x', 10, 40, $dMax);
-                $t2 = $this->cT('90', "x", 40, $dMax);
-                $t3 = $this->cT('90', "x", 40, $dMin);
+                $t1 = $this->cT('x', 10, 40, $dMin);
+                $t2 = $this->cT('90', "x", 40, $dMin);
+                $t3 = $this->cT('x', 60, 40, $dMax);
+                $t4 = $this->cT('x', 60, 40, $dMin);
+                // dd($t2);
                 //menghitung M
                 $m1 = abs(0.025 * ((1 / 3 * pow($t1, 3)) - (10 * (1 / 2) * pow($t1, 2)))) - abs(0.025 * ((1 / 3 * pow(10, 3)) - (10 * (1 / 2) * pow(10, 2))));
-                $m2 = $this->integralM($t1, $t2, $dMax);
-                $m3 = abs(0.025 * ((90 * (1 / 2) * pow($t3, 2)) - (1 / 3 * pow($t3, 3)))) - abs(0.025 * ((90 * (1 / 2) * pow($t2, 2)) - (1 / 3 * pow($t2, 3))));
-                $m4 = $this->integralM($t3, 100, $dMin);
+                $m2 = $this->integralM($t1, $t4, $dMin);
+                $m3 = abs(0.025 * ((1 / 3 * pow($t4, 3)) - (60 * (1 / 2) * pow($t4, 2)))) - abs(0.025 * ((1 / 3 * pow($t2, 3)) - (60 * (1 / 2) * pow($t2, 2))));
+                $m4 = $this->integralM($t3, 100, $dMax);
                 $mtotal = abs($m1) + abs($m2) + abs($m3) + abs($m4);
                 //menghitung A
-                $a1 = $t1 * $dMax / 2;
-                $a2 = $dMax * ($t2 - $t1);
-                $a3 = ($dMax + $dMin) * ($t3 - $t2) / 2;
-                // $a3 = (90 - $t2) * $dMax / 2;
-                $a4 = $dMin * (100 - $t3);
+                $a1 = $t1 * $dMin / 2;
+                $a2 = $dMin * ($t4 - $t1);
+                $a3 = ($dMin + $dMax) * 10 / 2;
+                $a4 = $dMax * (90 - $t4);
                 //menghitung score
                 $atotal = abs($a1) + abs($a2) + abs($a3) + abs($a4);
                 $score = $mtotal / $atotal;
                 $scoreName = $this->resultAkhir($score);
+                // dd($score);
+                //======================================================================================
             } else {
                 // dd("sangat cerdas");
                 $dMax = $this->cMinMax($min, "max");
